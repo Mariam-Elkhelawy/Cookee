@@ -1,0 +1,44 @@
+name: CookEE
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  flutter_screenutil: ^5.9.0
+  google_fonts: 6.1.0
+  dio: ^5.4.2+1
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  shared_preferences: ^2.2.3
+  injectable: ^2.4.0
+  google_nav_bar: ^5.0.6
+  shimmer: ^3.0.0
+  flutter_bloc: ^8.1.5
+  get_it: ^7.7.0
+  fancy_shimmer_image: ^2.0.3
+
+
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+
