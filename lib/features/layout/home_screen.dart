@@ -30,200 +30,172 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocProvider(
       create: (context) => SearchCubit(
         getIt.get<SearchRepoImplement>(),
-      )..getSearchRecipes('snack'),
+      )..getSearchRecipes('drink'),
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
         bottomNavigationBar: const NavBar(),
         body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    height: 450.h,
-                    color: AppColor.primaryColor,
-                  ),
-                  Positioned(
-                    top: 65.h,
-                    left: 16.w,
-                    child: Text(
-                      'Hi.. 👋🏻',
-                      style: AppStyles.bodyM,
-                    ),
-                  ),
-                  Positioned(
-                    top: 75.h,
-                    left: 16.w,
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Cook Like a',
-                            style: AppStyles.bodyM,
-                          ),
-                          TextSpan(
-                            text: ' Chef',
-                            style: GoogleFonts.pacifico(
-                                color: AppColor.whiteColor,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 65.h),
+                Text(
+                  'Hi.. 👋🏻',
+                  style: AppStyles.bodyM,
+                ),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Cook Like a',
+                        style: AppStyles.bodyM,
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 120,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: SizedBox(
-                        width: 380,
-                        height: 60,
-                        child: customTextFormField(
-                          onChanged: (val) {
-                            searchedVal = val;
-                            setState(() {});
-                          },
-                          controller: searchController,
-                          borderColor: const Color(0xFFebebea),
-                          hintText: 'What do you want to eat?',
-                          fillColor: const Color(0xFFebebea),
-                          radius: 15,
-                          prefixIcon: const Icon(
-                            CupertinoIcons.search,
+                      TextSpan(
+                        text: ' Chef',
+                        style: GoogleFonts.pacifico(
                             color: AppColor.primaryColor,
-                          ),
-                        ),
-                      ),
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w500),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                SizedBox(
+                  width: 380,
+                  height: 60,
+                  child: customTextFormField(
+                    onChanged: (val) {
+                      searchedVal = val;
+                      setState(() {});
+                    },
+                    controller: searchController,
+                    borderColor: const Color(0xFFebebea),
+                    hintText: 'What do you want to eat?',
+                    fillColor: const Color(0xFFebebea),
+                    radius: 15,
+                    prefixIcon: const Icon(
+                      CupertinoIcons.search,
+                      color: AppColor.primaryColor,
                     ),
                   ),
-                  Positioned(
-                     top: 195.h,
-                    child: BlocBuilder<SearchCubit, SearchState>(
-                      builder: (context, state) {
-                        if (state is SearchFailureState) {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: Text(
-                                  state.errorMessage,
-                                ),
-                              );
-                            },
-                          );
-                        }
-                        if (state is SearchSuccessState) {
-                          return SizedBox(
-                            height: 500.h,width: 500,
-                            child: ListView.builder(
-                               // shrinkWrap: true,
-                              physics: const BouncingScrollPhysics(),
-                              scrollDirection: Axis.horizontal,
-                              itemCount: state.searchModel.hits!.length,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 12.w),
-                                  child: Container(
-                                    height: 500.h,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30.r),
-                                    ),
-                                    child: Stack(
-                                      alignment: Alignment.centerLeft,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(30.r),
-                                          child: FancyShimmerImage(
-                                            imageUrl: state
-                                                    .searchModel
-                                                    .hits![index]
-                                                    .recipe
-                                                    ?.image ??
-                                                '',
-                                            height: 400,
-                                            width: 250,
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: 320,
-                                          child: SizedBox(
-                                            width: 150,
-                                            child: Text(
-                                              state.searchModel.hits?[index]
-                                                      .recipe?.label ??
-                                                  '',
-                                              textAlign: TextAlign.center,
-                                              style: AppStyles.bodyM.copyWith(
-                                                  color: AppColor.whiteColor),
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: 380,
-                                          child: Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.access_time_outlined,
-                                                color: AppColor.primaryColor,
-                                              ),
-                                              SizedBox(
-                                                width: 16.w,
-                                              ),
-                                              Shimmer(
-                                                gradient: LinearGradient(colors: [
-                                                  AppColor.primaryColor,
-                                                  AppColor.secondaryColor
-                                                ]),
-                                                child: Text(
-                                                  state.searchModel.hits?[index]
-                                                          .recipe?.totalTime
-                                                          .toString() ??
-                                                      '',
-                                                  style: AppStyles.bodyM,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Positioned(
-                                          top: 400,
-                                          child: Shimmer(
-                                            gradient: LinearGradient(colors: [
-                                              AppColor.primaryColor,
-                                              AppColor.secondaryColor
-                                            ]),
-                                            child: Text(
-                                              state.searchModel.hits?[index]
-                                                      .recipe?.calories
-                                                      ?.truncate()
-                                                      .toString() ??
-                                                  '',
-                                              style: AppStyles.bodyM,
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
+                ),
+                SizedBox(height: 16.h),
+                BlocBuilder<SearchCubit, SearchState>(
+                  builder: (context, state) {
+                    if (state is SearchFailureState) {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(
+                              state.errorMessage,
                             ),
                           );
-                        }
+                        },
+                      );
+                    }
+                    if (state is SearchSuccessState) {
+                      return SizedBox(
+                        height: 400.h,
+                        width: 480.w,
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: state.searchModel.hits!.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.only(right: 22.w),
+                              child: Container(
+                                height: 400.h,
+                                decoration: BoxDecoration(
+                                  color: index % 2 == 0
+                                      ? Color(0xFFf6ede8)
+                                      : AppColor.navColor.withOpacity(.8),
+                                  borderRadius: BorderRadius.circular(30.r),
+                                ),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(30.r),
+                                          topRight: Radius.circular(30.r),
+                                      ),
+                                      child: FancyShimmerImage(
+                                        imageUrl: state.searchModel.hits![index]
+                                                .recipe?.image ??
+                                            '',
+                                        height: 270.h,
+                                        width: 250.w,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 235.w,
+                                      child: Text(
+                                        state.searchModel.hits?[index].recipe
+                                                ?.label ??
+                                            '',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.center,
+                                        style: AppStyles.bodyM.copyWith(
+                                            color: AppColor.primaryColor),
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.access_time_outlined,
+                                          color: AppColor.primaryColor,
+                                        ),
+                                        SizedBox(width: 16.w),
+                                        Shimmer(
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              AppColor.primaryColor,
+                                              index % 2 != 0
+                                                  ? Color(0xFFf6ede8)
+                                                  : AppColor.navColor
+                                                      .withOpacity(.8),
+                                            ],
+                                          ),
+                                          child: Text(
+                                            '${state.searchModel.hits?[index].recipe?.totalTime?.truncate().toString() ?? ''} min',
+                                            style: AppStyles.bodyM,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Shimmer(
+                                      gradient: LinearGradient(colors: [
+                                        AppColor.primaryColor,
+                                        AppColor.secondaryColor
+                                      ]),
+                                      child: Text(
+                                        state.searchModel.hits?[index].recipe
+                                                ?.calories
+                                                ?.truncate()
+                                                .toString() ??
+                                            '',
+                                        style: AppStyles.bodyM,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }
 
-                        return const Center(child: CircularProgressIndicator());
-                      },
-                    ),
-                  ),
-                ],
-              )
-            ],
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                )
+              ],
+            ),
           ),
         ),
       ),
