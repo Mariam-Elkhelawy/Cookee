@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key});
-
+   NavBar({super.key,required this.index,required this.onTabChange});
+ int index;
+   void Function(int)? onTabChange ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,6 +15,8 @@ class NavBar extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25.r),
         child: GNav(
+          selectedIndex: index,
+          onTabChange: onTabChange,
           backgroundColor: AppColor.primaryColor,
           tabMargin: EdgeInsets.symmetric(horizontal: 6.w, vertical: 12.h),
           rippleColor: AppColor.primaryColor,
