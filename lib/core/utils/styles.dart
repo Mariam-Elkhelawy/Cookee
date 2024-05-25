@@ -29,4 +29,8 @@ class AppStyles {
       fontWeight: FontWeight.w500,
       color: AppColor.primaryColor,
       letterSpacing: -.17);
+  static TextStyle italicText = GoogleFonts.pacifico(
+      color: AppColor.primaryColor,
+      fontSize: 22.sp,
+      fontWeight: FontWeight.w500);
 }

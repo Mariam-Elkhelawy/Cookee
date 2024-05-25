@@ -1,11 +1,12 @@
 import 'package:CookEE/core/locator/service_locator.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
+import 'package:CookEE/core/utils/app_strings.dart';
+import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:CookEE/features/home_tab/data/repositories/search_repo_implement.dart';
 import 'package:CookEE/features/home_tab/presentation/search_cubit/search_cubit.dart';
 import 'package:CookEE/features/home_tab/presentation/widgets/dot_widget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,12 @@ class HomeTab extends StatelessWidget {
   HomeTab({super.key, required this.tabIndex, required this.onTap});
   int tabIndex;
   void Function(int)? onTap;
-  List<String> tabText = ['BreakFast', 'Lunch', 'Dinner', 'Snack'];
+  List<String> tabText = [
+    AppStrings.breakFast,
+    AppStrings.lunch,
+    AppStrings.dinner,
+    AppStrings.snack
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,35 +44,34 @@ class HomeTab extends StatelessWidget {
                     labelPadding: EdgeInsets.symmetric(horizontal: 14.w),
                     tabAlignment: TabAlignment.start,
                     labelStyle: AppStyles.generalText,
-                    // indicatorWeight: .5,
                     unselectedLabelColor: AppColor.secondaryColor,
                     indicatorColor: Colors.transparent,
                     tabs: [
                       Tab(
                         child: DotWidget(
                           pageIndex: 0,
-                          text: 'BreakFast',
+                          text: AppStrings.breakFast,
                           tabIndex: tabIndex,
                         ),
                       ),
                       Tab(
                         child: DotWidget(
                           pageIndex: 1,
-                          text: 'Lunch',
+                          text: AppStrings.lunch,
                           tabIndex: tabIndex,
                         ),
                       ),
                       Tab(
                         child: DotWidget(
                           pageIndex: 2,
-                          text: 'Dinner',
+                          text: AppStrings.dinner,
                           tabIndex: tabIndex,
                         ),
                       ),
                       Tab(
                         child: DotWidget(
                           pageIndex: 3,
-                          text: 'Snack',
+                          text: AppStrings.snack,
                           tabIndex: tabIndex,
                         ),
                       ),
@@ -102,7 +107,7 @@ class HomeTab extends StatelessWidget {
                             scrollDirection: Axis.horizontal,
                             itemCount: state.searchModel.hits!.length,
                             itemBuilder: (context, index) {
-                               // print(state.searchModel.hits?[index].recipe?.cuisineType);
+                              // print(state.searchModel.hits?[index].recipe?.cuisineType);
                               // print(state.searchModel.hits?[index].recipe?.source);
                               // print(state.searchModel.hits?[index].recipe?.healthLabels);
                               // print(state.searchModel.hits?[index].recipe?.ingredientLines);
@@ -116,7 +121,7 @@ class HomeTab extends StatelessWidget {
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: index % 2 == 0
-                                            ? const Color(0xFFf6ede8)
+                                           ? AppColor.lightColor
                                             : AppColor.navColor.withOpacity(.8),
                                         borderRadius:
                                             BorderRadius.circular(30.r),
@@ -165,8 +170,7 @@ class HomeTab extends StatelessWidget {
                                                   colors: [
                                                     AppColor.primaryColor,
                                                     index % 2 != 0
-                                                        ? const Color(
-                                                            0xFFf6ede8)
+                                                        ? AppColor.lightColor
                                                         : AppColor.navColor
                                                             .withOpacity(.8),
                                                   ],
@@ -192,18 +196,20 @@ class HomeTab extends StatelessWidget {
                                     ),
                                   ),
                                   Positioned(
-                                    top:   index%2 !=0 ? -10.h: 345.h,
-                                    left:  index%2 !=0 ?-10.w:216.w,
+                                    top: index % 2 != 0 ? -10.h : 345.h,
+                                    left: index % 2 != 0 ? -10.w : 216.w,
                                     child: Container(
-                                      decoration:  BoxDecoration(
-                                          shape: BoxShape.circle,boxShadow: [
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          boxShadow: [
                                             BoxShadow(
-                                              color: AppColor.primaryColor.withOpacity(0.5),
+                                              color: AppColor.primaryColor
+                                                  .withOpacity(0.5),
                                               spreadRadius: 5,
                                               blurRadius: 7,
                                               offset: const Offset(1, 1),
                                             )
-                                      ],
+                                          ],
                                           color: AppColor.primaryColor),
                                       child: Padding(
                                         padding: EdgeInsets.all(16.r),

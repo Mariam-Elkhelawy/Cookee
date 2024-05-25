@@ -1,9 +1,17 @@
 class AppStrings {
-  static const String welcome = 'Welcome Back To Chatty';
-  static const String start = "Let's Start";
-  static const String startCommunicate = "Let's Communicate";
+  static const String hi = 'Hi.. 👋🏻';
+  static const String cook ='Cook Like a';
+  static const String chef =' Chef';
+  static const String breakFast ='BreakFast';
+  static const String lunch ='Lunch';
+  static const String dinner ='Dinner';
+  static const String snack ='Snack';
+  static const String home ='Home';
+  static const String search ='Search';
+  static const String saved ='Saved';
+  static const String categories ='Categories';
+
   static const String emailSignIn = 'Sign in to your mail';
-  static const String roomWelcome = 'create room to easily communicate';
   static const String createNewAccount = 'Create New Account';
   static const String create = 'Create Account';
   static const String userName = 'User Name';

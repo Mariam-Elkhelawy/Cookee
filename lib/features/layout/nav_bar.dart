@@ -1,4 +1,5 @@
 import 'package:CookEE/core/utils/app_colors.dart';
+import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,20 +40,21 @@ class NavBar extends StatelessWidget {
           tabs: const [
             GButton(
               icon: CupertinoIcons.house_fill,
-              text: 'Home',
-            ),
-            GButton(
-              icon: Icons.favorite_border,
-              text: 'Likes',
+              text: AppStrings.home,
             ),
             GButton(
               icon: CupertinoIcons.search,
-              text: 'Search',
+              text: AppStrings.search,
             ),
             GButton(
               icon: Icons.fastfood_outlined,
-              text: 'Profile',
-            )
+              text: AppStrings.categories,
+            ),
+            GButton(
+              icon: Icons.favorite_border,
+              text: AppStrings.saved,
+            ),
+
           ],
         ),
       ),
