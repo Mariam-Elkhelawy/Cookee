@@ -54,7 +54,6 @@ class NavBar extends StatelessWidget {
               icon: Icons.favorite_border,
               text: AppStrings.saved,
             ),
-
           ],
         ),
       ),

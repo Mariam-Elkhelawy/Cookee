@@ -2,7 +2,7 @@ import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:CookEE/features/home_tab/presentation/pages/home_tab.dart';
-import 'package:CookEE/features/home_tab/presentation/pages/tab2.dart';
+import 'package:CookEE/features/home_tab/presentation/pages/search_tab.dart';
 import 'package:CookEE/features/home_tab/presentation/pages/tab3.dart';
 import 'package:CookEE/features/home_tab/presentation/pages/tab4.dart';
 import 'package:CookEE/features/layout/nav_bar.dart';
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
       ),
-      const Tab2(),
+      SearchTab(),
       const Tab3(),
       const Tab4()
     ];

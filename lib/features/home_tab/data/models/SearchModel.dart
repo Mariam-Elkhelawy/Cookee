@@ -135,9 +135,9 @@ class Recipe {
   List<dynamic>? cautions;
   List<String>? ingredientLines;
   List<Ingredients>? ingredients;
-  num? calories;
+  double? calories;
   num? totalWeight;
-  num? totalTime;
+  double? totalTime;
   List<String>? cuisineType;
   List<String>? mealType;
   List<String>? dishType;

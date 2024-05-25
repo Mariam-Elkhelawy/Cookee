@@ -10,6 +10,7 @@ class AppStrings {
   static const String search ='Search';
   static const String saved ='Saved';
   static const String categories ='Categories';
+  static const String searchHint ='What do you want to eat?';
 
   static const String emailSignIn = 'Sign in to your mail';
   static const String createNewAccount = 'Create New Account';
@@ -49,8 +50,6 @@ class AppStrings {
   static const String nameValidate = "Name can't be empty!";
   static const String phoneValidate = "Phone can't be empty!";
   static const String phoneValidate2 = "Enter Valid Number e.g: +02010XXXXXXXX";
-  static const String chattyIntro =
-      'Our chatty app is the perfect way to stay connected with friends and family.';
   static const String editPassword ='Change Password';
   static const String editName ='Change User Name';
   static const String editEmail ='Change Email';
