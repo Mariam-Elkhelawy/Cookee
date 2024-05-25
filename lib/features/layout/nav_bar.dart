@@ -5,9 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavBar extends StatelessWidget {
-   NavBar({super.key,required this.index,required this.onTabChange});
- int index;
-   void Function(int)? onTabChange ;
+  NavBar({super.key, required this.index, required this.onTabChange});
+  int index;
+  void Function(int)? onTabChange;
   @override
   Widget build(BuildContext context) {
     return Padding(

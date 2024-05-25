@@ -25,8 +25,8 @@ class AppStyles {
       color: AppColor.whiteColor,
       letterSpacing: -.17);
   static TextStyle generalText = GoogleFonts.poppins(
-      fontSize: 12.sp,
-      fontWeight: FontWeight.w400,
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w500,
       color: AppColor.primaryColor,
       letterSpacing: -.17);
 }
