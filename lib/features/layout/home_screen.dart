@@ -46,23 +46,25 @@ class _HomeScreenState extends State<HomeScreen> {
           setState(() {});
         },
       ),
-      body: Padding(
-        padding: EdgeInsets.only(left: 20.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 80.h),
-            Text(AppStrings.hi, style: AppStyles.bodyM),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(text: AppStrings.cook, style: AppStyles.bodyM),
-                  TextSpan(text: AppStrings.chef, style: AppStyles.italicText),
-                ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 20.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 80.h),
+              Text(AppStrings.hi, style: AppStyles.bodyM),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(text: AppStrings.cook, style: AppStyles.bodyM),
+                    TextSpan(text: AppStrings.chef, style: AppStyles.italicText),
+                  ],
+                ),
               ),
-            ),
-            tabs[navIndex]
-          ],
+              tabs[navIndex]
+            ],
+          ),
         ),
       ),
     );

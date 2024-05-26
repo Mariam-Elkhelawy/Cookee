@@ -35,61 +35,20 @@ class HomeRecipeWidget extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30.r),
-                        topRight: Radius.circular(30.r),
-                      ),
-                      child: FancyShimmerImage(
-                        imageUrl: recipeImage,
-                        height: 270.h,
-                        width: 250.w,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.access_time_outlined,
-                          color: AppColor.whiteColor,
-                        ),
-                        Shimmer(
-                          gradient: LinearGradient(
-                            colors: [
-                              AppColor.whiteColor,
-                              index % 2 != 0
-                                  ? AppColor.lightColor
-                                  : AppColor.navColor.withOpacity(.8),
-                            ],
-                          ),
-                          child: Text(
-                            '${time.truncate().toString()} min',
-                            style: AppStyles.bodyM,
-                          ),
-                        ),
-                        SizedBox(width: 16.w),
-                        const ImageIcon(
-                          AssetImage('assets/images/cal.png'),
-                          color: AppColor.whiteColor,
-                        ),
-                        const ImageIcon(
-                          AssetImage('assets/images/call.png'),
-                          color: AppColor.whiteColor,
-                        ),
-                        Text(
-                          calories.truncate().toString(),
-                          style: AppStyles.bodyM
-                              .copyWith(color: AppColor.whiteColor),
-                        ),
-                      ],
-                    ),
-                  ],
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30.r),
+                    topRight: Radius.circular(30.r),
+                  ),
+                  child: FancyShimmerImage(
+                    imageUrl: recipeImage,
+                    height: 250.h,
+                    width: 235.w,
+                  ),
                 ),
                 SizedBox(height: 8.h),
                 SizedBox(
-                  width: 235.w,
+                  width: 215.w,
                   child: Text(
                     recipeName,
                     maxLines: 1,
@@ -100,13 +59,49 @@ class HomeRecipeWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 12.h),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.access_time_outlined,
+                      color: AppColor.primaryColor,
+                    ),
+                    SizedBox(width: 12.w),
+                    Shimmer(
+                      gradient: LinearGradient(
+                        colors: [
+                          AppColor.primaryColor,
+                          index % 2 != 0
+                              ? AppColor.lightColor
+                              : AppColor.navColor.withOpacity(.8),
+                        ],
+                      ),
+                      child: Text(
+                        '${time.truncate().toString()} min',
+                        style: AppStyles.bodyM,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const ImageIcon(
+                      AssetImage('assets/images/call.png'),
+                      color: AppColor.primaryColor,
+                    ),
+                    Text(
+                      calories.truncate().toString(),
+                      style: AppStyles.bodyM
+                          .copyWith(color: AppColor.primaryColor),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
         ),
         Positioned(
-          top: index % 2 != 0 ? -10.h : 345.h,
-          left: index % 2 != 0 ? -10.w : 216.w,
+          top: -10.h ,
+          left:  -10.w ,
           child: Container(
             decoration: BoxDecoration(
                 shape: BoxShape.circle,

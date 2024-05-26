@@ -12,4 +12,12 @@ class AppImages {
   static const String icLove = 'assets/icons/ic_love.png';
   static const String settings = 'assets/images/settings.png';
   static const String noRoom = 'assets/images/no_rooms.png';
+  static const List<String> quickSearchImages = [
+    'assets/images/pasta.png',
+    'assets/images/chicken.png',
+    'assets/images/meat.png',
+    'assets/images/seafood.png',
+    'assets/images/pizza.png',
+    'assets/images/dessert.png',
+  ];
 }
