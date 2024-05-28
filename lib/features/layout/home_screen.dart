@@ -1,11 +1,11 @@
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
-import 'package:CookEE/features/home_tab/presentation/pages/home_tab.dart';
-import 'package:CookEE/features/home_tab/presentation/pages/search_tab.dart';
-import 'package:CookEE/features/home_tab/presentation/pages/tab3.dart';
-import 'package:CookEE/features/home_tab/presentation/pages/tab4.dart';
 import 'package:CookEE/features/layout/nav_bar.dart';
+import 'package:CookEE/features/tabs/presentation/pages/home_tab.dart';
+import 'package:CookEE/features/tabs/presentation/pages/search_tab.dart';
+import 'package:CookEE/features/tabs/presentation/pages/tab3.dart';
+import 'package:CookEE/features/tabs/presentation/pages/tab4.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
       ),
-      SearchTab(),
+      const SearchTab(),
       const Tab3(),
       const Tab4()
     ];

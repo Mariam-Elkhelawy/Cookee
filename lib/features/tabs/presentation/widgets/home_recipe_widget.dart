@@ -1,4 +1,5 @@
 import 'package:CookEE/core/utils/app_colors.dart';
+import 'package:CookEE/core/utils/app_images.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,7 @@ class HomeRecipeWidget extends StatelessWidget {
                 Row(
                   children: [
                     const ImageIcon(
-                      AssetImage('assets/images/call.png'),
+                      AssetImage(AppImages.calories),
                       color: AppColor.primaryColor,
                     ),
                     Text(

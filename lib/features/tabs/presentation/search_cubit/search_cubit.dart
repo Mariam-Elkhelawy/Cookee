@@ -1,5 +1,5 @@
-import 'package:CookEE/features/home_tab/data/models/SearchModel.dart';
-import 'package:CookEE/features/home_tab/data/repositories/search_repo.dart';
+import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
+import 'package:CookEE/features/tabs/data/repositories/search_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

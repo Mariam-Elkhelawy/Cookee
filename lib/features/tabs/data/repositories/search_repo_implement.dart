@@ -2,10 +2,11 @@ import 'package:CookEE/core/api/api_manager.dart';
 import 'package:CookEE/core/api/end_points.dart';
 import 'package:CookEE/core/errors/failures.dart';
 import 'package:CookEE/core/utils/constants.dart';
-import 'package:CookEE/features/home_tab/data/models/SearchModel.dart';
-import 'package:CookEE/features/home_tab/data/repositories/search_repo.dart';
+import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
+import 'search_repo.dart';
 
 class SearchRepoImplement implements SearchRepo {
   ApiManager apiManager;
@@ -20,7 +21,9 @@ class SearchRepoImplement implements SearchRepo {
           queryParameters: {
             'q': searchQuery,
             'app_id': Constants.appId,
-            'app_key': Constants.appKey
+            'app_key': Constants.appKey,
+            'from':'0',
+            'to':'100'
           });
       SearchModel searchModel = SearchModel.fromJson(response.data);
       return Right(searchModel);

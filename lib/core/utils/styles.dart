@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppStyles {
   static TextStyle bodyL = GoogleFonts.poppins(
-      fontSize: 24.sp,
-      fontWeight: FontWeight.w800,
-      color: AppColor.whiteColor,
+      fontSize: 20.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColor.textColor,
       letterSpacing: -.17);
   static TextStyle bodyM = GoogleFonts.poppins(
       fontSize: 18.sp,
