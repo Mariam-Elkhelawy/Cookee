@@ -104,12 +104,12 @@ class HomeRecipeWidget extends StatelessWidget {
                     offset: const Offset(1, 1),
                   )
                 ],
-                color: AppColor.primaryColor),
+                color: AppColor.whiteColor),
             child: Padding(
               padding: EdgeInsets.all(12.r),
               child: const Icon(
                 Icons.favorite_border,
-                color: AppColor.whiteColor,
+                color: AppColor.primaryColor,
                 size: 18,
               ),
             ),

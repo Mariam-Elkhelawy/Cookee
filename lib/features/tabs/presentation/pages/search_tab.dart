@@ -1,14 +1,12 @@
 import 'dart:async';
-
-import 'package:CookEE/config/routes/app_routes_names.dart';
 import 'package:CookEE/core/components/reusable_components.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/app_images.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
+import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
 import 'package:CookEE/features/tabs/presentation/search_cubit/search_cubit.dart';
 import 'package:CookEE/features/tabs/presentation/widgets/quick_search.dart';
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+import 'package:CookEE/features/tabs/presentation/widgets/search_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,19 +21,19 @@ class SearchTab extends StatefulWidget {
 
 class _SearchTabState extends State<SearchTab> {
   TextEditingController searchController = TextEditingController();
-  Timer? _debounce;
+  Timer? debounce;
 
   String? searchedVal;
 
   @override
   void dispose() {
-    _debounce?.cancel();
+    debounce?.cancel();
     super.dispose();
   }
 
   void _onSearchChanged(String query) {
-    if (_debounce?.isActive ?? false) _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () {
+    if (debounce?.isActive ?? false) debounce?.cancel();
+    debounce = Timer(const Duration(milliseconds: 500), () {
       searchedVal = query;
       if (searchedVal != null && searchedVal!.isNotEmpty) {
         context.read<SearchCubit>().getSearchRecipes(searchedVal!);
@@ -96,117 +94,12 @@ class _SearchTabState extends State<SearchTab> {
                       SizedBox(
                         height: 800.h,
                         child: ListView.builder(
-                          padding: EdgeInsets.zero,
-                          clipBehavior: Clip.none,
-                          physics: const BouncingScrollPhysics(),
+                          padding: EdgeInsets.only(bottom: 70.h,top: 12.h),
                           itemCount: state.searchModel.hits!.length,
                           itemBuilder: (context, index) {
                             final recipe =
                                 state.searchModel.hits![index].recipe;
-                            return InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, AppRoutesName.details,arguments: recipe);
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 14.h),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15.r),
-                                    color: AppColor.whiteColor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: AppColor.primaryColor
-                                              .withOpacity(.5),
-                                          offset: const Offset(0, .5),
-                                          blurRadius: 7,
-                                          spreadRadius: 1)
-                                    ],
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(12),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10.r),
-                                          child: FancyShimmerImage(
-                                            imageUrl: recipe?.image ?? '',
-                                            width: 115.w,
-                                            height: 105.h,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 16.w),
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 12.h),
-                                          SizedBox(
-                                            width: 230.w,
-                                            child: Text(
-                                              recipe?.label ?? '',
-                                              style: AppStyles.bodyM,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          SizedBox(height: 4.h),
-                                          SizedBox(
-                                            width: 230.w,
-                                            child: Text(
-                                              'Source : ${recipe?.source}',
-                                              style: AppStyles.bodyM.copyWith(
-                                                color: const Color(0xFFcbcbcb),
-                                              ),
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          SizedBox(height: 16.h),
-                                          Row(
-                                            children: [
-                                              const ImageIcon(
-                                                AssetImage(AppImages.calories),
-                                                color: Color(0xFFf5a06f),
-                                                size: 20,
-                                              ),
-                                              SizedBox(width: 4.w),
-                                              Text(
-                                                recipe?.calories
-                                                        ?.truncate()
-                                                        .toString() ??
-                                                    '',
-                                                style: AppStyles.bodyM.copyWith(
-                                                  color: const Color(0xFFcbcbcb),
-                                                ),
-                                              ),
-                                              SizedBox(width: 55.w),
-                                              Icon(
-                                                Icons.access_time_outlined,
-                                                color: AppColor.primaryColor
-                                                    .withOpacity(.8),
-                                                size: 16,
-                                              ),
-                                              SizedBox(width: 4.w),
-                                              Text(
-                                                '${recipe?.totalTime?.truncate().toString()} min',
-                                                style: AppStyles.bodyM.copyWith(
-                                                    color:
-                                                        const Color(0xFFcbd1d2)),
-                                              )
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
+                            return SearchWidget(recipe: recipe??Recipe());
                           },
                         ),
                       ),

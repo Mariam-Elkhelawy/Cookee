@@ -12,7 +12,6 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shimmer/shimmer.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key, required this.tabIndex, required this.onTap});
@@ -220,7 +219,6 @@ class HomeTabState extends State<HomeTab> {
                               final recipe =
                                   state.searchModel.hits![index].recipe;
                               print(recipe?.url ?? '');
-                              print(recipe?.uri ?? '');
                               if(recipe?.totalTime==0){
                                 recipe?.totalTime=45;
                               }

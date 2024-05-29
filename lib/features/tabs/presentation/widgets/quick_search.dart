@@ -1,3 +1,4 @@
+import 'package:CookEE/config/routes/app_routes_names.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_images.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
@@ -24,6 +25,10 @@ class QuickSearch extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 20.h),
             itemBuilder: (context, index) {
               return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutesName.search,
+                      arguments: AppStrings.quickSearch[index]);
+                },
                 child: Material(
                   elevation: 10,
                   color: AppColor.whiteColor,
@@ -63,7 +68,7 @@ class QuickSearch extends StatelessWidget {
         Wrap(
           spacing: 8.w,
           children: AppStrings.searchTags.map(
-                (label) {
+            (label) {
               return ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
@@ -75,7 +80,10 @@ class QuickSearch extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutesName.search,
+                      arguments: label);
+                },
                 child: Text(
                   label,
                   style: AppStyles.bodyS.copyWith(

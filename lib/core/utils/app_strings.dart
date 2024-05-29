@@ -14,6 +14,8 @@ class AppStrings {
   static const String error = 'Error !';
   static const String quick = 'Quick Search';
   static const String tags = 'Popular Tags';
+   static const String favBox = 'Fav';
+  static const String shoppingBox = 'ShoppingBox';
   static const List<String> tabText = [breakFast, lunch, dinner, snack];
   static const List<String> quickSearch = [
     'Pasta',
@@ -28,7 +30,7 @@ class AppStrings {
     'Arabian',
     'Italian',
     'Chinese',
-    'Low Fat',
+    'Low Carb',
     'Fast Cooking',
     'Drink',
   ];
