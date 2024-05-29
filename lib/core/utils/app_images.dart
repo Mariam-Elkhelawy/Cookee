@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppImages {
   static const String splash = 'assets/images/splash.png';
   static const String auth = 'assets/images/auth.png';
@@ -20,5 +22,11 @@ class AppImages {
     'assets/images/seafood.png',
     'assets/images/pizza.png',
     'assets/images/dessert.png',
+  ];
+  static const List<Widget> icons = [
+     ImageIcon(AssetImage('assets/images/kcal.png')),
+     ImageIcon(AssetImage('assets/images/protein.png')),
+     ImageIcon(AssetImage('assets/images/fat.png')),
+     ImageIcon(AssetImage('assets/images/carb.png')),
   ];
 }

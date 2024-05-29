@@ -23,23 +23,25 @@ class QuickSearch extends StatelessWidget {
           child: GridView.builder(
             padding: EdgeInsets.symmetric(vertical: 20.h),
             itemBuilder: (context, index) {
-              return Material(
-                elevation: 10,
-                color: AppColor.whiteColor,
-                borderRadius: BorderRadius.circular(10.r),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      AppImages.quickSearchImages[index],
-                      height: 95.h,
-                      width: 90.w,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      AppStrings.quickSearch[index],
-                    )
-                  ],
+              return InkWell(
+                child: Material(
+                  elevation: 10,
+                  color: AppColor.whiteColor,
+                  borderRadius: BorderRadius.circular(10.r),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        AppImages.quickSearchImages[index],
+                        height: 95.h,
+                        width: 90.w,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(height: 16.h),
+                      Text(
+                        AppStrings.quickSearch[index],
+                      )
+                    ],
+                  ),
                 ),
               );
             },

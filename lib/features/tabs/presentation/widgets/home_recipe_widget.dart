@@ -44,10 +44,10 @@ class HomeRecipeWidget extends StatelessWidget {
                   child: FancyShimmerImage(
                     imageUrl: recipeImage,
                     height: 250.h,
-                    width: 235.w,
+                    width: 230.w,
                   ),
                 ),
-                SizedBox(height: 8.h),
+                SizedBox(height: 16.h),
                 SizedBox(
                   width: 215.w,
                   child: Text(
@@ -56,7 +56,7 @@ class HomeRecipeWidget extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style:
-                        AppStyles.bodyM.copyWith(color: AppColor.primaryColor),
+                        AppStyles.generalText,
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -64,38 +64,28 @@ class HomeRecipeWidget extends StatelessWidget {
                   children: [
                     const Icon(
                       Icons.access_time_outlined,
-                      color: AppColor.primaryColor,
+                      color: AppColor.primaryColor,size: 18,
                     ),
-                    SizedBox(width: 12.w),
-                    Shimmer(
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColor.primaryColor,
-                          index % 2 != 0
-                              ? AppColor.lightColor
-                              : AppColor.navColor.withOpacity(.8),
-                        ],
-                      ),
-                      child: Text(
-                        '${time.truncate().toString()} min',
-                        style: AppStyles.bodyM,
-                      ),
+                    SizedBox(width: 8.w),
+                    Text(
+                      '${time.truncate().toString()} mins',
+                      style: AppStyles.generalText,
                     ),
-                  ],
-                ),
-                Row(
-                  children: [
+                    SizedBox(width: 42.w),
+
                     const ImageIcon(
                       AssetImage(AppImages.calories),
-                      color: AppColor.primaryColor,
+                      color: AppColor.primaryColor,size: 18,
                     ),
+                    SizedBox(width: 8.w),
+
                     Text(
                       calories.truncate().toString(),
                       style: AppStyles.bodyM
                           .copyWith(color: AppColor.primaryColor),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -116,11 +106,11 @@ class HomeRecipeWidget extends StatelessWidget {
                 ],
                 color: AppColor.primaryColor),
             child: Padding(
-              padding: EdgeInsets.all(16.r),
+              padding: EdgeInsets.all(12.r),
               child: const Icon(
-                Icons.favorite_sharp,
+                Icons.favorite_border,
                 color: AppColor.whiteColor,
-                size: 14,
+                size: 18,
               ),
             ),
           ),

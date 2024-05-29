@@ -52,15 +52,33 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 80.h),
+              SizedBox(height: 70.h),
               Text(AppStrings.hi, style: AppStyles.bodyM),
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(text: AppStrings.cook, style: AppStyles.bodyM),
-                    TextSpan(text: AppStrings.chef, style: AppStyles.italicText),
-                  ],
-                ),
+              Row(
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(text: AppStrings.cook, style: AppStyles.bodyM),
+                        TextSpan(
+                            text: AppStrings.chef, style: AppStyles.italicText),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  if (navIndex != 1)
+                    IconButton(
+                      onPressed: () {
+                        navIndex = 1;
+                        setState(() {});
+                      },
+                      icon: const Icon(
+                        Icons.search,
+                        size: 30,
+                        color: AppColor.primaryColor,
+                      ),
+                    )
+                ],
               ),
               tabs[navIndex]
             ],

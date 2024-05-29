@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:CookEE/config/routes/app_routes_names.dart';
 import 'package:CookEE/core/components/reusable_components.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_images.dart';
@@ -102,10 +103,14 @@ class _SearchTabState extends State<SearchTab> {
                           itemBuilder: (context, index) {
                             final recipe =
                                 state.searchModel.hits![index].recipe;
-                            return Padding(
-                              padding: EdgeInsets.symmetric(vertical: 14.h),
-                              child: Container(
-                                decoration: BoxDecoration(
+                            return InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, AppRoutesName.details,arguments: recipe);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 14.h),
+                                child: Container(
+                                  decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15.r),
                                     color: AppColor.whiteColor,
                                     boxShadow: [
@@ -115,89 +120,90 @@ class _SearchTabState extends State<SearchTab> {
                                           offset: const Offset(0, .5),
                                           blurRadius: 7,
                                           spreadRadius: 1)
-                                    ]),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(12),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(10.r),
-                                        child: FancyShimmerImage(
-                                          imageUrl: recipe?.image ?? '',
-                                          width: 115.w,
-                                          height: 105.h,
+                                    ],
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(12),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10.r),
+                                          child: FancyShimmerImage(
+                                            imageUrl: recipe?.image ?? '',
+                                            width: 115.w,
+                                            height: 105.h,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(width: 16.w),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(height: 12.h),
-                                        SizedBox(
-                                          width: 230.w,
-                                          child: Text(
-                                            recipe?.label ?? '',
-                                            style: AppStyles.bodyM,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                        SizedBox(height: 4.h),
-                                        SizedBox(
-                                          width: 230.w,
-                                          child: Text(
-                                            'Source : ${recipe?.source}',
-                                            style: AppStyles.bodyM.copyWith(
-                                              color: const Color(0xFFcbcbcb),
+                                      SizedBox(width: 16.w),
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(height: 12.h),
+                                          SizedBox(
+                                            width: 230.w,
+                                            child: Text(
+                                              recipe?.label ?? '',
+                                              style: AppStyles.bodyM,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
                                           ),
-                                        ),
-                                        SizedBox(height: 16.h),
-                                        Row(
-                                          children: [
-                                            const ImageIcon(
-                                              AssetImage(
-                                                  AppImages.calories),
-                                              color: Color(0xFFf5a06f),
-                                              size: 20,
-                                            ),
-                                            SizedBox(width: 4.w),
-                                            Text(
-                                              recipe?.calories
-                                                      ?.truncate()
-                                                      .toString() ??
-                                                  '',
+                                          SizedBox(height: 4.h),
+                                          SizedBox(
+                                            width: 230.w,
+                                            child: Text(
+                                              'Source : ${recipe?.source}',
                                               style: AppStyles.bodyM.copyWith(
                                                 color: const Color(0xFFcbcbcb),
                                               ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
-                                            SizedBox(width: 55.w),
-                                            Icon(
-                                              Icons.access_time_outlined,
-                                              color: AppColor.primaryColor
-                                                  .withOpacity(.8),
-                                              size: 16,
-                                            ),
-                                            SizedBox(width: 4.w),
-                                            Text(
-                                              '${recipe?.totalTime?.truncate().toString()} min',
-                                              style: AppStyles.bodyM.copyWith(
-                                                  color:
-                                                      const Color(0xFFcbd1d2)),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                          ),
+                                          SizedBox(height: 16.h),
+                                          Row(
+                                            children: [
+                                              const ImageIcon(
+                                                AssetImage(AppImages.calories),
+                                                color: Color(0xFFf5a06f),
+                                                size: 20,
+                                              ),
+                                              SizedBox(width: 4.w),
+                                              Text(
+                                                recipe?.calories
+                                                        ?.truncate()
+                                                        .toString() ??
+                                                    '',
+                                                style: AppStyles.bodyM.copyWith(
+                                                  color: const Color(0xFFcbcbcb),
+                                                ),
+                                              ),
+                                              SizedBox(width: 55.w),
+                                              Icon(
+                                                Icons.access_time_outlined,
+                                                color: AppColor.primaryColor
+                                                    .withOpacity(.8),
+                                                size: 16,
+                                              ),
+                                              SizedBox(width: 4.w),
+                                              Text(
+                                                '${recipe?.totalTime?.truncate().toString()} min',
+                                                style: AppStyles.bodyM.copyWith(
+                                                    color:
+                                                        const Color(0xFFcbd1d2)),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
