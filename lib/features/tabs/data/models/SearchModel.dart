@@ -1,11 +1,14 @@
+import 'package:hive/hive.dart';
+part 'SearchModel.g.dart';
 class SearchModel {
   SearchModel({
-      this.q, 
-      this.from, 
-      this.to, 
-      this.more, 
-      this.count, 
-      this.hits,});
+    this.q,
+    this.from,
+    this.to,
+    this.more,
+    this.count,
+    this.hits,
+  });
 
   SearchModel.fromJson(dynamic json) {
     q = json['q'];
@@ -39,12 +42,12 @@ class SearchModel {
     }
     return map;
   }
-
 }
 
 class Hits {
   Hits({
-      this.recipe,});
+    this.recipe,
+  });
 
   Hits.fromJson(dynamic json) {
     recipe = json['recipe'] != null ? Recipe.fromJson(json['recipe']) : null;
@@ -58,32 +61,33 @@ class Hits {
     }
     return map;
   }
-
 }
 
-class Recipe {
+@HiveType(typeId: 0)
+class Recipe extends HiveObject {
   Recipe({
-      this.uri, 
-      this.label, 
-      this.image, 
-      this.source, 
-      this.url, 
-      this.shareAs, 
-      this.yield, 
-      this.dietLabels, 
-      this.healthLabels, 
-      this.cautions, 
-      this.ingredientLines, 
-      this.ingredients, 
-      this.calories, 
-      this.totalWeight, 
-      this.totalTime, 
-      this.cuisineType, 
-      this.mealType, 
-      this.dishType, 
-      this.totalNutrients, 
-      this.totalDaily, 
-      this.digest,});
+    this.uri,
+    this.label,
+    this.image,
+    this.source,
+    this.url,
+    this.shareAs,
+    this.yield,
+    this.dietLabels,
+    this.healthLabels,
+    this.cautions,
+    this.ingredientLines,
+    this.ingredients,
+    this.calories,
+    this.totalWeight,
+    this.totalTime,
+    this.cuisineType,
+    this.mealType,
+    this.dishType,
+    this.totalNutrients,
+    this.totalDaily,
+    this.digest,
+  });
 
   Recipe.fromJson(dynamic json) {
     uri = json['uri'];
@@ -98,7 +102,7 @@ class Recipe {
     if (json['cautions'] != null) {
       cautions = [];
       json['cautions'].forEach((v) {
-         // cautions?.add(Dynamic.fromJson(v));
+        // cautions?.add(Dynamic.fromJson(v));
       });
     }
     ingredientLines = json['ingredientLines'] != null ? json['ingredientLines'].cast<String>() : [];
@@ -123,26 +127,48 @@ class Recipe {
       });
     }
   }
+
+  @HiveField(0)
   String? uri;
+  @HiveField(1)
   String? label;
+  @HiveField(2)
   String? image;
+  @HiveField(3)
   String? source;
+  @HiveField(4)
   String? url;
+  @HiveField(5)
   String? shareAs;
+  @HiveField(6)
   num? yield;
+  @HiveField(7)
   List<String>? dietLabels;
+  @HiveField(8)
   List<String>? healthLabels;
+  @HiveField(9)
   List<dynamic>? cautions;
+  @HiveField(10)
   List<String>? ingredientLines;
+  @HiveField(11)
   List<Ingredients>? ingredients;
+  @HiveField(12)
   double? calories;
+  @HiveField(13)
   num? totalWeight;
+  @HiveField(14)
   double? totalTime;
+  @HiveField(15)
   List<String>? cuisineType;
+  @HiveField(16)
   List<String>? mealType;
+  @HiveField(17)
   List<String>? dishType;
+  @HiveField(18)
   TotalNutrients? totalNutrients;
+  @HiveField(19)
   TotalDaily? totalDaily;
+  @HiveField(20)
   List<Digest>? digest;
 
   Map<String, dynamic> toJson() {
@@ -180,19 +206,77 @@ class Recipe {
     }
     return map;
   }
-
 }
+
+
+@HiveType(typeId: 1)
+class Ingredients extends HiveObject {
+  Ingredients({
+    this.text,
+    this.quantity,
+    this.measure,
+    this.food,
+    this.weight,
+    this.foodCategory,
+    this.foodId,
+    this.image,
+  });
+
+  Ingredients.fromJson(dynamic json) {
+    text = json['text'];
+    quantity = json['quantity'];
+    measure = json['measure'];
+    food = json['food'];
+    weight = json['weight'];
+    foodCategory = json['foodCategory'];
+    foodId = json['foodId'];
+    image = json['image'];
+  }
+
+  @HiveField(0)
+  String? text;
+  @HiveField(1)
+  num? quantity;
+  @HiveField(2)
+  String? measure;
+  @HiveField(3)
+  String? food;
+  @HiveField(4)
+  num? weight;
+  @HiveField(5)
+  String? foodCategory;
+  @HiveField(6)
+  String? foodId;
+  @HiveField(7)
+  String? image;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['text'] = text;
+    map['quantity'] = quantity;
+    map['measure'] = measure;
+    map['food'] = food;
+    map['weight'] = weight;
+    map['foodCategory'] = foodCategory;
+    map['foodId'] = foodId;
+    map['image'] = image;
+    return map;
+  }
+}
+
+
 
 class Digest {
   Digest({
-      this.label, 
-      this.tag, 
-      this.schemaOrgTag, 
-      this.total, 
-      this.hasRDI, 
-      this.daily, 
-      this.unit, 
-      this.sub,});
+    this.label,
+    this.tag,
+    this.schemaOrgTag,
+    this.total,
+    this.hasRDI,
+    this.daily,
+    this.unit,
+    this.sub,
+  });
 
   Digest.fromJson(dynamic json) {
     label = json['label'];
@@ -232,18 +316,18 @@ class Digest {
     }
     return map;
   }
-
 }
 
 class Sub {
   Sub({
-      this.label, 
-      this.tag, 
-      this.schemaOrgTag, 
-      this.total, 
-      this.hasRDI, 
-      this.daily, 
-      this.unit,});
+    this.label,
+    this.tag,
+    this.schemaOrgTag,
+    this.total,
+    this.hasRDI,
+    this.daily,
+    this.unit,
+  });
 
   Sub.fromJson(dynamic json) {
     label = json['label'];
@@ -273,39 +357,41 @@ class Sub {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class TotalDaily {
   TotalDaily({
-      this.enerckcal, 
-      this.fat, 
-      this.fasat, 
-      this.chocdf, 
-      this.fibtg, 
-      this.procnt, 
-      this.chole, 
-      this.na, 
-      this.ca, 
-      this.mg, 
-      this.k, 
-      this.fe, 
-      this.zn, 
-      this.p, 
-      this.vitarae, 
-      this.vitc, 
-      this.thia, 
-      this.ribf, 
-      this.nia, 
-      this.vitb6a, 
-      this.foldfe, 
-      this.vitb12, 
-      this.vitd, 
-      this.tocpha, 
-      this.vitk1,});
+    this.enerckcal,
+    this.fat,
+    this.fasat,
+    this.chocdf,
+    this.fibtg,
+    this.procnt,
+    this.chole,
+    this.na,
+    this.ca,
+    this.mg,
+    this.k,
+    this.fe,
+    this.zn,
+    this.p,
+    this.vitarae,
+    this.vitc,
+    this.thia,
+    this.ribf,
+    this.nia,
+    this.vitb6a,
+    this.foldfe,
+    this.vitb12,
+    this.vitd,
+    this.tocpha,
+    this.vitk1,
+  });
 
   TotalDaily.fromJson(dynamic json) {
-    enerckcal = json['ENERC_KCAL'] != null ? EnercKcal.fromJson(json['ENERC_KCAL']) : null;
+    enerckcal = json['ENERC_KCAL'] != null
+        ? EnercKcal.fromJson(json['ENERC_KCAL'])
+        : null;
     fat = json['FAT'] != null ? Fat.fromJson(json['FAT']) : null;
     fasat = json['FASAT'] != null ? Fasat.fromJson(json['FASAT']) : null;
     chocdf = json['CHOCDF'] != null ? Chocdf.fromJson(json['CHOCDF']) : null;
@@ -319,7 +405,8 @@ class TotalDaily {
     fe = json['FE'] != null ? Fe.fromJson(json['FE']) : null;
     zn = json['ZN'] != null ? Zn.fromJson(json['ZN']) : null;
     p = json['P'] != null ? P.fromJson(json['P']) : null;
-    vitarae = json['VITA_RAE'] != null ? VitaRae.fromJson(json['VITA_RAE']) : null;
+    vitarae =
+        json['VITA_RAE'] != null ? VitaRae.fromJson(json['VITA_RAE']) : null;
     vitc = json['VITC'] != null ? Vitc.fromJson(json['VITC']) : null;
     thia = json['THIA'] != null ? Thia.fromJson(json['THIA']) : null;
     ribf = json['RIBF'] != null ? Ribf.fromJson(json['RIBF']) : null;
@@ -436,14 +523,14 @@ class TotalDaily {
     }
     return map;
   }
-
 }
 
 class Vitk1 {
   Vitk1({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Vitk1.fromJson(dynamic json) {
     label = json['label'];
@@ -461,14 +548,14 @@ class Vitk1 {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Tocpha {
   Tocpha({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Tocpha.fromJson(dynamic json) {
     label = json['label'];
@@ -486,14 +573,14 @@ class Tocpha {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Vitd {
   Vitd({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Vitd.fromJson(dynamic json) {
     label = json['label'];
@@ -511,14 +598,14 @@ class Vitd {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Vitb12 {
   Vitb12({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Vitb12.fromJson(dynamic json) {
     label = json['label'];
@@ -536,14 +623,14 @@ class Vitb12 {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Foldfe {
   Foldfe({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Foldfe.fromJson(dynamic json) {
     label = json['label'];
@@ -561,14 +648,14 @@ class Foldfe {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Vitb6a {
   Vitb6a({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Vitb6a.fromJson(dynamic json) {
     label = json['label'];
@@ -586,14 +673,14 @@ class Vitb6a {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Nia {
   Nia({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Nia.fromJson(dynamic json) {
     label = json['label'];
@@ -611,14 +698,14 @@ class Nia {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Ribf {
   Ribf({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Ribf.fromJson(dynamic json) {
     label = json['label'];
@@ -636,14 +723,14 @@ class Ribf {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Thia {
   Thia({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Thia.fromJson(dynamic json) {
     label = json['label'];
@@ -661,14 +748,14 @@ class Thia {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Vitc {
   Vitc({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Vitc.fromJson(dynamic json) {
     label = json['label'];
@@ -686,14 +773,14 @@ class Vitc {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class VitaRae {
   VitaRae({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   VitaRae.fromJson(dynamic json) {
     label = json['label'];
@@ -711,14 +798,14 @@ class VitaRae {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class P {
   P({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   P.fromJson(dynamic json) {
     label = json['label'];
@@ -736,14 +823,14 @@ class P {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Zn {
   Zn({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Zn.fromJson(dynamic json) {
     label = json['label'];
@@ -761,14 +848,14 @@ class Zn {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fe {
   Fe({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fe.fromJson(dynamic json) {
     label = json['label'];
@@ -786,14 +873,14 @@ class Fe {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class K {
   K({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   K.fromJson(dynamic json) {
     label = json['label'];
@@ -811,14 +898,14 @@ class K {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Mg {
   Mg({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Mg.fromJson(dynamic json) {
     label = json['label'];
@@ -836,14 +923,14 @@ class Mg {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Ca {
   Ca({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Ca.fromJson(dynamic json) {
     label = json['label'];
@@ -861,14 +948,14 @@ class Ca {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Na {
   Na({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Na.fromJson(dynamic json) {
     label = json['label'];
@@ -886,14 +973,14 @@ class Na {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Chole {
   Chole({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Chole.fromJson(dynamic json) {
     label = json['label'];
@@ -911,14 +998,14 @@ class Chole {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Procnt {
   Procnt({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Procnt.fromJson(dynamic json) {
     label = json['label'];
@@ -936,14 +1023,14 @@ class Procnt {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fibtg {
   Fibtg({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fibtg.fromJson(dynamic json) {
     label = json['label'];
@@ -961,14 +1048,14 @@ class Fibtg {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Chocdf {
   Chocdf({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Chocdf.fromJson(dynamic json) {
     label = json['label'];
@@ -986,14 +1073,14 @@ class Chocdf {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fasat {
   Fasat({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fasat.fromJson(dynamic json) {
     label = json['label'];
@@ -1011,14 +1098,14 @@ class Fasat {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fat {
   Fat({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fat.fromJson(dynamic json) {
     label = json['label'];
@@ -1036,14 +1123,14 @@ class Fat {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class EnercKcal {
   EnercKcal({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   EnercKcal.fromJson(dynamic json) {
     label = json['label'];
@@ -1061,54 +1148,58 @@ class EnercKcal {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class TotalNutrients {
   TotalNutrients({
-      this.enerckcal, 
-      this.fat, 
-      this.fasat, 
-      this.fatrn, 
-      this.fams, 
-      this.fapu, 
-      this.chocdf, 
-      this.cHOCDFnet, 
-      this.fibtg, 
-      this.sugar, 
-      this.procnt, 
-      this.chole, 
-      this.na, 
-      this.ca, 
-      this.mg, 
-      this.k, 
-      this.fe, 
-      this.zn, 
-      this.p, 
-      this.vitarae, 
-      this.vitc, 
-      this.thia, 
-      this.ribf, 
-      this.nia, 
-      this.vitb6a, 
-      this.foldfe, 
-      this.folfd, 
-      this.folac, 
-      this.vitb12, 
-      this.vitd, 
-      this.tocpha, 
-      this.vitk1, 
-      this.water,});
+    this.enerckcal,
+    this.fat,
+    this.fasat,
+    this.fatrn,
+    this.fams,
+    this.fapu,
+    this.chocdf,
+    this.cHOCDFnet,
+    this.fibtg,
+    this.sugar,
+    this.procnt,
+    this.chole,
+    this.na,
+    this.ca,
+    this.mg,
+    this.k,
+    this.fe,
+    this.zn,
+    this.p,
+    this.vitarae,
+    this.vitc,
+    this.thia,
+    this.ribf,
+    this.nia,
+    this.vitb6a,
+    this.foldfe,
+    this.folfd,
+    this.folac,
+    this.vitb12,
+    this.vitd,
+    this.tocpha,
+    this.vitk1,
+    this.water,
+  });
 
   TotalNutrients.fromJson(dynamic json) {
-    enerckcal = json['ENERC_KCAL'] != null ? EnercKcal.fromJson(json['ENERC_KCAL']) : null;
+    enerckcal = json['ENERC_KCAL'] != null
+        ? EnercKcal.fromJson(json['ENERC_KCAL'])
+        : null;
     fat = json['FAT'] != null ? Fat.fromJson(json['FAT']) : null;
     fasat = json['FASAT'] != null ? Fasat.fromJson(json['FASAT']) : null;
     fatrn = json['FATRN'] != null ? Fatrn.fromJson(json['FATRN']) : null;
     fams = json['FAMS'] != null ? Fams.fromJson(json['FAMS']) : null;
     fapu = json['FAPU'] != null ? Fapu.fromJson(json['FAPU']) : null;
     chocdf = json['CHOCDF'] != null ? Chocdf.fromJson(json['CHOCDF']) : null;
-    cHOCDFnet = json['CHOCDF.net'] != null ? ChocdfNet.fromJson(json['CHOCDF.net']) : null;
+    cHOCDFnet = json['CHOCDF.net'] != null
+        ? ChocdfNet.fromJson(json['CHOCDF.net'])
+        : null;
     fibtg = json['FIBTG'] != null ? Fibtg.fromJson(json['FIBTG']) : null;
     sugar = json['SUGAR'] != null ? Sugar.fromJson(json['SUGAR']) : null;
     procnt = json['PROCNT'] != null ? Procnt.fromJson(json['PROCNT']) : null;
@@ -1120,7 +1211,8 @@ class TotalNutrients {
     fe = json['FE'] != null ? Fe.fromJson(json['FE']) : null;
     zn = json['ZN'] != null ? Zn.fromJson(json['ZN']) : null;
     p = json['P'] != null ? P.fromJson(json['P']) : null;
-    vitarae = json['VITA_RAE'] != null ? VitaRae.fromJson(json['VITA_RAE']) : null;
+    vitarae =
+        json['VITA_RAE'] != null ? VitaRae.fromJson(json['VITA_RAE']) : null;
     vitc = json['VITC'] != null ? Vitc.fromJson(json['VITC']) : null;
     thia = json['THIA'] != null ? Thia.fromJson(json['THIA']) : null;
     ribf = json['RIBF'] != null ? Ribf.fromJson(json['RIBF']) : null;
@@ -1272,14 +1364,14 @@ class TotalNutrients {
     }
     return map;
   }
-
 }
 
 class Water {
   Water({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Water.fromJson(dynamic json) {
     label = json['label'];
@@ -1297,15 +1389,14 @@ class Water {
     map['unit'] = unit;
     return map;
   }
-
 }
-
 
 class Folac {
   Folac({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Folac.fromJson(dynamic json) {
     label = json['label'];
@@ -1323,14 +1414,14 @@ class Folac {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Folfd {
   Folfd({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Folfd.fromJson(dynamic json) {
     label = json['label'];
@@ -1348,17 +1439,14 @@ class Folfd {
     map['unit'] = unit;
     return map;
   }
-
 }
-
-
-
 
 class Sugar {
   Sugar({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Sugar.fromJson(dynamic json) {
     label = json['label'];
@@ -1376,15 +1464,14 @@ class Sugar {
     map['unit'] = unit;
     return map;
   }
-
 }
-
 
 class ChocdfNet {
   ChocdfNet({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   ChocdfNet.fromJson(dynamic json) {
     label = json['label'];
@@ -1402,15 +1489,14 @@ class ChocdfNet {
     map['unit'] = unit;
     return map;
   }
-
 }
-
 
 class Fapu {
   Fapu({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fapu.fromJson(dynamic json) {
     label = json['label'];
@@ -1428,14 +1514,14 @@ class Fapu {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fams {
   Fams({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fams.fromJson(dynamic json) {
     label = json['label'];
@@ -1453,14 +1539,14 @@ class Fams {
     map['unit'] = unit;
     return map;
   }
-
 }
 
 class Fatrn {
   Fatrn({
-      this.label, 
-      this.quantity, 
-      this.unit,});
+    this.label,
+    this.quantity,
+    this.unit,
+  });
 
   Fatrn.fromJson(dynamic json) {
     label = json['label'];
@@ -1478,51 +1564,5 @@ class Fatrn {
     map['unit'] = unit;
     return map;
   }
-
 }
 
-
-class Ingredients {
-  Ingredients({
-      this.text, 
-      this.quantity, 
-      this.measure, 
-      this.food, 
-      this.weight, 
-      this.foodCategory, 
-      this.foodId, 
-      this.image,});
-
-  Ingredients.fromJson(dynamic json) {
-    text = json['text'];
-    quantity = json['quantity'];
-    measure = json['measure'];
-    food = json['food'];
-    weight = json['weight'];
-    foodCategory = json['foodCategory'];
-    foodId = json['foodId'];
-    image = json['image'];
-  }
-  String? text;
-  num? quantity;
-  String? measure;
-  String? food;
-  num? weight;
-  String? foodCategory;
-  String? foodId;
-  String? image;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['text'] = text;
-    map['quantity'] = quantity;
-    map['measure'] = measure;
-    map['food'] = food;
-    map['weight'] = weight;
-    map['foodCategory'] = foodCategory;
-    map['foodId'] = foodId;
-    map['image'] = image;
-    return map;
-  }
-
-}

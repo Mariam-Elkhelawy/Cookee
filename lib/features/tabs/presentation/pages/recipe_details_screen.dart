@@ -32,7 +32,7 @@ class RecipeDetailsScreen extends StatelessWidget {
       '${recipe.totalNutrients?.fat?.unit}',
       '${recipe.totalNutrients?.chocdf?.unit}',
     ];
-    var favBox = Hive.box<RecipeA>(AppStrings.favBox);
+    var favBox = Hive.box<Recipe>(AppStrings.favBox);
 
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
@@ -73,7 +73,7 @@ class RecipeDetailsScreen extends StatelessWidget {
                         const Spacer(),
                         ValueListenableBuilder(
                           valueListenable: favBox.listenable(),
-                          builder: (context, Box<RecipeA> box, _) {
+                          builder: (context, Box<Recipe> box, _) {
                             final bool saved = favBox.containsKey(recipe.label);
                             return Padding(
                               padding: EdgeInsets.only(right: 8.0.w),
@@ -94,10 +94,11 @@ class RecipeDetailsScreen extends StatelessWidget {
                                       onTap: () async {
                                         await favBox.put(
                                           recipe.label,
-                                          RecipeA(
-                                            label: recipe.label,
-                                            image: recipe.image,
-                                            calories: recipe.calories,
+                                          Recipe(
+                                            image: recipe.image
+                                            // hits: recipe.,
+                                            // image: recipe.image,
+                                            // calories: recipe.calories,
                                             // ingredients: recipe.ingredients,
                                           ),
                                         );
