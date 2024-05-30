@@ -1,5 +1,7 @@
 import 'package:CookEE/core/utils/app_colors.dart';
+import 'package:CookEE/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 
 Widget unDefinedRoute() {
   return const Scaffold(
@@ -24,7 +26,7 @@ Widget customTextFormField(
     Color? cursorColor = AppColor.primaryColor,
     required Color fillColor,
     String? Function(String?)? onValidate,
-      void Function(String)? onChanged}) {
+    void Function(String)? onChanged}) {
   return TextFormField(
     onChanged: onChanged,
     keyboardType: keyboardType,
@@ -96,3 +98,19 @@ Container customButton(
 //       textColor: AppColor.whiteColor,
 //       fontSize: 13.0);
 // }
+Widget customLoading() {
+  return Center(
+    child: LoadingIndicator(
+      indicatorType: Indicator.ballTrianglePathColoredFilled,
+      colors: [
+        AppColor.primaryColor,
+        AppColor.secondaryColor,
+        AppColor.textColor
+      ],
+    ),
+  );
+}
+
+Widget customError(String errorMessage) {
+  return Center(child: Text(errorMessage, style: AppStyles.bodyM));
+}

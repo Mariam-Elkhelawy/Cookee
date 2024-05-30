@@ -1,3 +1,4 @@
+import 'package:CookEE/core/components/reusable_components.dart';
 import 'package:CookEE/core/locator/service_locator.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/styles.dart';
@@ -38,12 +39,7 @@ class SearchScreen extends StatelessWidget {
         body: BlocBuilder<SearchCubit, SearchState>(
           builder: (context, state) {
             if (state is SearchFailureState) {
-              return Center(
-                child: Text(
-                  state.errorMessage,
-                  style: AppStyles.bodyM,
-                ),
-              );
+              return customError(state.errorMessage);
             }
             if (state is SearchSuccessState) {
               return Column(
@@ -73,12 +69,10 @@ class SearchScreen extends StatelessWidget {
               );
             }
             return SizedBox(
-              width: 500.w,
-              height: 800.h,
-              child: const Center(
-                child: CircularProgressIndicator(
-                  color: AppColor.primaryColor,
-                ),
+              height: 450.h,
+              child: Padding(
+                padding: EdgeInsets.only(top: 250.h),
+                child: customLoading(),
               ),
             );
           },

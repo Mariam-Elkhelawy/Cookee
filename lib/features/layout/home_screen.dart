@@ -4,8 +4,9 @@ import 'package:CookEE/core/utils/styles.dart';
 import 'package:CookEE/features/layout/nav_bar.dart';
 import 'package:CookEE/features/tabs/presentation/pages/home_tab.dart';
 import 'package:CookEE/features/tabs/presentation/pages/search_tab.dart';
-import 'package:CookEE/features/tabs/presentation/pages/tab3.dart';
+import 'package:CookEE/features/tabs/presentation/pages/saved_tab.dart';
 import 'package:CookEE/features/tabs/presentation/pages/tab4.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
       const SearchTab(),
-      const Tab3(),
+      const SavedTab(),
       const Tab4()
     ];
     return Scaffold(
@@ -50,32 +51,41 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: EdgeInsets.only(left: 20.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 70.h),
-              Text(AppStrings.hi, style: AppStyles.bodyM),
+              SizedBox(height: 65.h),
               Row(
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(text: AppStrings.cook, style: AppStyles.bodyM),
-                        TextSpan(
-                            text: AppStrings.chef, style: AppStyles.italicText),
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(AppStrings.hi, style: AppStyles.bodyM),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                                text: AppStrings.cook, style: AppStyles.bodyM),
+                            TextSpan(
+                                text: AppStrings.chef,
+                                style: AppStyles.italicText),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                   const Spacer(),
                   if (navIndex != 1)
-                    IconButton(
-                      onPressed: () {
-                        navIndex = 1;
-                        setState(() {});
-                      },
-                      icon: const Icon(
-                        Icons.search,
-                        size: 30,
-                        color: AppColor.primaryColor,
+                    Padding(
+                      padding: EdgeInsets.only(right: 8.0.w),
+                      child: IconButton(
+                        onPressed: () {
+                          navIndex = 1;
+                          setState(() {});
+                        },
+                        icon: const Icon(
+                          CupertinoIcons.search,
+                          size: 30,
+                          color: AppColor.primaryColor,
+                        ),
                       ),
                     )
                 ],

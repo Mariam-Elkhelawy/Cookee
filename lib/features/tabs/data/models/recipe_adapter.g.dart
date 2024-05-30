@@ -6,17 +6,17 @@ part of 'recipe_adapter.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class RecipeAdapter extends TypeAdapter<Recipe> {
+class RecipeAdapter extends TypeAdapter<RecipeA> {
   @override
   final int typeId = 0;
 
   @override
-  Recipe read(BinaryReader reader) {
+  RecipeA read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Recipe(
+    return RecipeA(
       label: fields[0] as String?,
       image: fields[1] as String?,
       url: fields[2] as String?,
@@ -27,7 +27,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
   }
 
   @override
-  void write(BinaryWriter writer, Recipe obj) {
+  void write(BinaryWriter writer, RecipeA obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)

@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 part 'recipe_adapter.g.dart';
 
 @HiveType(typeId: 0)
-class Recipe extends HiveObject {
+class RecipeA extends HiveObject {
   @HiveField(0)
   String? label;
 
@@ -22,7 +22,7 @@ class Recipe extends HiveObject {
   @HiveField(5)
   List<Ingredient>? ingredients;
 
-  Recipe({
+  RecipeA({
     this.label,
     this.image,
     this.url,

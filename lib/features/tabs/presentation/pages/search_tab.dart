@@ -31,7 +31,7 @@ class _SearchTabState extends State<SearchTab> {
     super.dispose();
   }
 
-  void _onSearchChanged(String query) {
+  void onSearchChanged(String query) {
     if (debounce?.isActive ?? false) debounce?.cancel();
     debounce = Timer(const Duration(milliseconds: 500), () {
       searchedVal = query;
@@ -40,6 +40,12 @@ class _SearchTabState extends State<SearchTab> {
       }
       setState(() {});
     });
+  }
+
+  Future<void> refreshData() async {
+    if (searchedVal != null && searchedVal!.isNotEmpty) {
+      context.read<SearchCubit>().getSearchRecipes(searchedVal!);
+    }
   }
 
   @override
@@ -64,7 +70,7 @@ class _SearchTabState extends State<SearchTab> {
                 CupertinoIcons.search,
                 color: AppColor.primaryColor,
               ),
-              onChanged: _onSearchChanged,
+              onChanged: onSearchChanged,
             ),
           ),
           if (searchedVal == null || searchedVal!.isEmpty) ...[
@@ -74,12 +80,7 @@ class _SearchTabState extends State<SearchTab> {
             BlocBuilder<SearchCubit, SearchState>(
               builder: (context, state) {
                 if (state is SearchFailureState) {
-                  return Center(
-                    child: Text(
-                      state.errorMessage,
-                      style: AppStyles.bodyM,
-                    ),
-                  );
+                  return customError(state.errorMessage);
                 }
                 if (state is SearchSuccessState) {
                   return Column(
@@ -93,26 +94,31 @@ class _SearchTabState extends State<SearchTab> {
                       ),
                       SizedBox(
                         height: 800.h,
-                        child: ListView.builder(
-                          padding: EdgeInsets.only(bottom: 70.h,top: 12.h),
-                          itemCount: state.searchModel.hits!.length,
-                          itemBuilder: (context, index) {
-                            final recipe =
-                                state.searchModel.hits![index].recipe;
-                            return SearchWidget(recipe: recipe??Recipe());
+                        child: RefreshIndicator(
+                          onRefresh: () async {
+                            await refreshData();
                           },
+                          color: AppColor.primaryColor,
+                          backgroundColor: AppColor.whiteColor,
+                          child: ListView.builder(
+                            padding: EdgeInsets.only(bottom: 70.h, top: 12.h),
+                            itemCount: state.searchModel.hits!.length,
+                            itemBuilder: (context, index) {
+                              final recipe =
+                                  state.searchModel.hits![index].recipe;
+                              return SearchWidget(recipe: recipe ?? Recipe());
+                            },
+                          ),
                         ),
                       ),
                     ],
                   );
                 }
                 return SizedBox(
-                  width: 500.w,
-                  height: 700.h,
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                      color: AppColor.primaryColor,
-                    ),
+                  height: 400.h,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 200.h),
+                    child: customLoading(),
                   ),
                 );
               },

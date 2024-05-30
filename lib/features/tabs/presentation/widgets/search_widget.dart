@@ -1,6 +1,7 @@
 import 'package:CookEE/config/routes/app_routes_names.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_images.dart';
+import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
@@ -65,9 +66,9 @@ class SearchWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 4.h),
                   SizedBox(
-                    width: 200.w,
+                    width: 175.w,
                     child: Text(
-                      'Source : ${recipe.source}',
+                      '${AppStrings.source}${recipe.source}',
                       style: AppStyles.bodyM.copyWith(
                         color: const Color(0xFFcbcbcb),
                       ),
@@ -77,37 +78,34 @@ class SearchWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 16.h),
                   SizedBox(
-                    width: 200,
-                    child: Padding(
-                      padding:  EdgeInsets.only(right: 8.0.w),
-                      child: Row(
-                        children: [
-                          const ImageIcon(
-                            AssetImage(AppImages.calories),
-                            color: Color(0xFFf5a06f),
-                            size: 20,
+                    width: 200.w,
+                    child: Row(
+                      children: [
+                        const ImageIcon(
+                          AssetImage(AppImages.calories),
+                          color: Color(0xFFf5a06f),
+                          size: 20,
+                        ),
+                        SizedBox(width: 6.w),
+                        Text(
+                          recipe.calories?.truncate().toString() ?? '',
+                          style: AppStyles.bodyM.copyWith(
+                            color: const Color(0xFFcbcbcb),
                           ),
-                          SizedBox(width: 6.w),
-                          Text(
-                            recipe.calories?.truncate().toString() ?? '',
-                            style: AppStyles.bodyM.copyWith(
-                              color: const Color(0xFFcbcbcb),
-                            ),
-                          ),
-                          const Spacer(),
-                          Icon(
-                            Icons.access_time_outlined,
-                            color: AppColor.primaryColor.withOpacity(.8),
-                            size: 16,
-                          ),
-                          SizedBox(width: 6.w),
-                          Text(
-                            '${recipe.totalTime?.truncate().toString()} min',
-                            style: AppStyles.bodyM
-                                .copyWith(color: const Color(0xFFcbd1d2)),
-                          )
-                        ],
-                      ),
+                        ),
+                        const Spacer(),
+                        Icon(
+                          Icons.access_time_outlined,
+                          color: AppColor.primaryColor.withOpacity(.8),
+                          size: 16,
+                        ),
+                        SizedBox(width: 6.w),
+                        Text(
+                          '${recipe.totalTime?.truncate().toString()} min',
+                          style: AppStyles.bodyM
+                              .copyWith(color: const Color(0xFFcbd1d2)),
+                        )
+                      ],
                     ),
                   )
                 ],

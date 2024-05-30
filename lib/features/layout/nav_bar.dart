@@ -47,12 +47,12 @@ class NavBar extends StatelessWidget {
               text: AppStrings.search,
             ),
             GButton(
-              icon: Icons.fastfood_outlined,
-              text: AppStrings.categories,
-            ),
-            GButton(
               icon: Icons.favorite_border,
               text: AppStrings.saved,
+            ),
+            GButton(
+              icon: Icons.shopping_bag_outlined,
+              text: AppStrings.shopping,
             ),
           ],
         ),
