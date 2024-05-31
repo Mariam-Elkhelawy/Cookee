@@ -5,7 +5,7 @@ import 'package:CookEE/features/layout/nav_bar.dart';
 import 'package:CookEE/features/tabs/presentation/pages/home_tab.dart';
 import 'package:CookEE/features/tabs/presentation/pages/search_tab.dart';
 import 'package:CookEE/features/tabs/presentation/pages/saved_tab.dart';
-import 'package:CookEE/features/tabs/presentation/pages/tab4.dart';
+import 'package:CookEE/features/tabs/presentation/pages/shopping_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,14 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
       HomeTab(
         tabIndex: tabIndex,
         onTap: (value) {
-          setState(() {
-            tabIndex = value;
-          });
+          setState(
+            () {
+              tabIndex = value;
+            },
+          );
         },
       ),
       const SearchTab(),
       const SavedTab(),
-      const Tab4()
+      const ShoppingTab()
     ];
     return Scaffold(
       backgroundColor: AppColor.whiteColor,

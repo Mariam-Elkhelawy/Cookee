@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'core/locator/service_locator.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
   Hive.registerAdapter(RecipeAdapter());
   Hive.registerAdapter(IngredientsAdapter());
+  Hive.registerAdapter(TotalNutrientsAdapter());
   await Hive.openBox<Recipe>(AppStrings.favBox);
 
   setupServiceLocator();

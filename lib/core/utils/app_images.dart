@@ -15,6 +15,7 @@ class AppImages {
   static const String settings = 'assets/images/settings.png';
   static const String noRoom = 'assets/images/no_rooms.png';
   static const String calories = 'assets/images/cal.png';
+  static const String share = 'assets/images/share_fill.png';
   static const List<String> quickSearchImages = [
     'assets/images/pasta.png',
     'assets/images/chicken.png',

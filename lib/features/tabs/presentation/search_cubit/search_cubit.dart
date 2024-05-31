@@ -7,14 +7,16 @@ part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchRepo) : super(SearchInitialState());
-  final SearchRepo searchRepo;
-  Future<void> getSearchRecipes(String searchQuery) async {
-    emit(SearchLoadingState());
-    var result = await searchRepo.searchRecipes(searchQuery);
-    result.fold((l) {
-      emit(SearchFailureState(l.message));
-    }, (r) {
-      emit(SearchSuccessState(r));
-    });
+  SearchRepo searchRepo;
+  Future<void> getSearchRecipes(String query) async {
+    final result = await searchRepo.searchRecipes(query);
+    result.fold(
+      (failure) {
+        if (!isClosed) emit(SearchFailureState(failure.message));
+      },
+      (recipes) {
+        if (!isClosed) emit(SearchSuccessState(recipes));
+      },
+    );
   }
 }

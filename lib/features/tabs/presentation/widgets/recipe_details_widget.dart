@@ -28,10 +28,11 @@ class RecipeDetailsWidget extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: AppColor.whiteColor),
-                  padding: EdgeInsets.all(8.r),
-                  child: AppImages.icons[index]),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle, color: AppColor.whiteColor),
+                padding: EdgeInsets.all(8.r),
+                child: AppImages.icons[index],
+              ),
               SizedBox(height: 6.h),
               Text(
                 detailsText,

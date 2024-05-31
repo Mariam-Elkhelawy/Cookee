@@ -26,7 +26,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       yield: fields[6] as num?,
       dietLabels: (fields[7] as List?)?.cast<String>(),
       healthLabels: (fields[8] as List?)?.cast<String>(),
-      cautions: fields[9] as List?,
+      cautions: (fields[9] as List?)?.cast<dynamic>(),
       ingredientLines: (fields[10] as List?)?.cast<String>(),
       ingredients: (fields[11] as List?)?.cast<Ingredients>(),
       calories: fields[12] as double?,
@@ -95,9 +95,9 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is RecipeAdapter &&
-              runtimeType == other.runtimeType &&
-              typeId == other.typeId;
+      other is RecipeAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 class IngredientsAdapter extends TypeAdapter<Ingredients> {
@@ -150,7 +150,80 @@ class IngredientsAdapter extends TypeAdapter<Ingredients> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is IngredientsAdapter &&
-              runtimeType == other.runtimeType &&
-              typeId == other.typeId;
+      other is IngredientsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class TotalNutrientsAdapter extends TypeAdapter<TotalNutrients> {
+  @override
+  final int typeId = 2;
+
+  @override
+  TotalNutrients read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return TotalNutrients(
+      enerckcal: fields[0] as EnercKcal?,
+      fat: fields[1] as Fat?,
+      fasat: fields[2] as Fasat?,
+      fatrn: fields[3] as Fatrn?,
+      fams: fields[4] as Fams?,
+      fapu: fields[5] as Fapu?,
+      chocdf: fields[6] as Chocdf?,
+      cHOCDFnet: fields[7] as ChocdfNet?,
+      fibtg: fields[8] as Fibtg?,
+      sugar: fields[9] as Sugar?,
+      procnt: fields[10] as Procnt?,
+      chole: fields[11] as Chole?,
+      na: fields[12] as Na?,
+      ca: fields[13] as Ca?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, TotalNutrients obj) {
+    writer
+      ..writeByte(14)
+      ..writeByte(0)
+      ..write(obj.enerckcal)
+      ..writeByte(1)
+      ..write(obj.fat)
+      ..writeByte(2)
+      ..write(obj.fasat)
+      ..writeByte(3)
+      ..write(obj.fatrn)
+      ..writeByte(4)
+      ..write(obj.fams)
+      ..writeByte(5)
+      ..write(obj.fapu)
+      ..writeByte(6)
+      ..write(obj.chocdf)
+      ..writeByte(7)
+      ..write(obj.cHOCDFnet)
+      ..writeByte(8)
+      ..write(obj.fibtg)
+      ..writeByte(9)
+      ..write(obj.sugar)
+      ..writeByte(10)
+      ..write(obj.procnt)
+      ..writeByte(11)
+      ..write(obj.chole)
+      ..writeByte(12)
+      ..write(obj.na)
+      ..writeByte(13)
+      ..write(obj.ca);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TotalNutrientsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

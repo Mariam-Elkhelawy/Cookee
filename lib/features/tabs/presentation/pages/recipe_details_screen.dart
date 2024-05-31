@@ -3,7 +3,6 @@ import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
-import 'package:CookEE/features/tabs/data/models/recipe_adapter.dart';
 import 'package:CookEE/features/tabs/presentation/widgets/ingredient_widget.dart';
 import 'package:CookEE/features/tabs/presentation/widgets/recipe_details_widget.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
@@ -95,12 +94,14 @@ class RecipeDetailsScreen extends StatelessWidget {
                                         await favBox.put(
                                           recipe.label,
                                           Recipe(
-                                            image: recipe.image
-                                            // hits: recipe.,
-                                            // image: recipe.image,
-                                            // calories: recipe.calories,
-                                            // ingredients: recipe.ingredients,
-                                          ),
+                                              image: recipe.image,
+                                              label: recipe.label,
+                                              // totalNutrients:
+                                              //     recipe.totalNutrients,
+                                              calories: recipe.calories,
+                                              totalTime: recipe.totalTime,
+                                              source: recipe.source,
+                                              ingredients: recipe.ingredients),
                                         );
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(SnackBar(
