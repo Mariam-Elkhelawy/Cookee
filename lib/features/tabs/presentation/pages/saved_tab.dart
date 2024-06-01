@@ -29,9 +29,8 @@ class SavedTab extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               var recipe = data[index];
-              final bool saved = favBox.containsKey(recipe.label);
 
-              return SavedWidget(recipe: recipe, saved: saved);
+              return SavedWidget(recipe: recipe);
             },
           ),
         );

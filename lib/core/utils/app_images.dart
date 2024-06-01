@@ -1,3 +1,4 @@
+import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppImages {
@@ -25,9 +26,9 @@ class AppImages {
     'assets/images/dessert.png',
   ];
   static const List<Widget> icons = [
-     ImageIcon(AssetImage('assets/images/kcal.png')),
-     ImageIcon(AssetImage('assets/images/protein.png')),
-     ImageIcon(AssetImage('assets/images/fat.png')),
-     ImageIcon(AssetImage('assets/images/carb.png')),
+     ImageIcon(AssetImage('assets/images/kcal.png'),color: AppColor.primaryColor,),
+     ImageIcon(AssetImage('assets/images/protein.png'),color: AppColor.primaryColor,),
+     ImageIcon(AssetImage('assets/images/fat.png'),color: AppColor.primaryColor,),
+     ImageIcon(AssetImage('assets/images/carb.png'),color: AppColor.primaryColor,),
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:CookEE/config/routes/app_routes_names.dart';
+import 'package:CookEE/core/components/reusable_components.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_images.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
@@ -11,9 +12,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SavedWidget extends StatelessWidget {
-  const SavedWidget({super.key, required this.recipe, required this.saved});
+  const SavedWidget({
+    super.key,
+    required this.recipe,
+  });
   final Recipe recipe;
-  final bool saved;
   @override
   Widget build(BuildContext context) {
     var favBox = Hive.box<Recipe>(AppStrings.favBox);
@@ -52,46 +55,20 @@ class SavedWidget extends StatelessWidget {
                   top: 8.h,
                   left: 137.w,
                   child: Container(
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: AppColor.whiteColor),
-                    padding: EdgeInsets.all(8.r),
-                    child: saved
-                        ? InkWell(
-                            onTap: () async {
-                              await favBox.delete(recipe.label);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('deleted')));
-                            },
-                            child: const Icon(
-                              Icons.favorite_sharp,
-                              color: AppColor.primaryColor,
-                              size: 18,
-                            ),
-                          )
-                        : InkWell(
-                            onTap: () async {
-                              await favBox.put(
-                                recipe.label,
-                                Recipe(
-                                    image: recipe.image,
-                                    label: recipe.label,
-                                    // totalNutrients:
-                                    //     recipe.totalNutrients,
-                                    calories: recipe.calories,
-                                    totalTime: recipe.totalTime,
-                                    source: recipe.source,
-                                    ingredients: recipe.ingredients),
-                              );
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('added')));
-                            },
-                            child: const Icon(
-                              Icons.favorite_border,
-                              color: AppColor.primaryColor,
-                              size: 18,
-                            ),
-                          ),
-                  ),
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle, color: AppColor.whiteColor),
+                      padding: EdgeInsets.all(8.r),
+                      child: InkWell(
+                        onTap: () async {
+                          await favBox.delete(recipe.label);
+                          customToast(message: AppStrings.removeItem);
+                        },
+                        child: const Icon(
+                          Icons.favorite_sharp,
+                          color: AppColor.primaryColor,
+                          size: 18,
+                        ),
+                      )),
                 ),
               ],
             ),

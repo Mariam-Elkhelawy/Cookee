@@ -21,7 +21,7 @@ class RecipeDetailsWidget extends StatelessWidget {
         width: 70.w,
         height: 120.h,
         decoration: BoxDecoration(
-            color: AppColor.blackColor.withOpacity(.3),
+            color: AppColor.primaryColor.withOpacity(.3),
             borderRadius: BorderRadius.circular(40)),
         child: Padding(
           padding: EdgeInsets.all(8.0.r),

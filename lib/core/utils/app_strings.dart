@@ -14,13 +14,17 @@ class AppStrings {
   static const String error = 'Error !';
   static const String quick = 'Quick Search';
   static const String tags = 'Popular Tags';
-   static const String favBox = 'Fav';
+  static const String favBox = 'Fav';
   static const String shoppingBox = 'ShoppingBox';
   static const String lowFat = 'Low Fat';
   static const String ingredients = 'Ingredients';
   static const String cooking = 'Start Cooking';
-  static const String share  = 'Share Recipe';
-  static const String source   = 'Source : ';
+  static const String share = 'Share Recipe';
+  static const String source = 'Source : ';
+  static const String saveItem = 'Item Saved Successfully';
+  static const String addIngredient = 'Ingredient added to list successfully';
+  static const String removeItem = 'Item removed from saved';
+  static const String removeIngredient = 'Ingredient removed from list successfully';
   static const List<String> tabText = [breakFast, lunch, dinner, snack];
   static const List<String> quickSearch = [
     'Pasta',

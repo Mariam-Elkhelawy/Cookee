@@ -12,7 +12,12 @@ void main() async {
   Hive.registerAdapter(RecipeAdapter());
   Hive.registerAdapter(IngredientsAdapter());
   Hive.registerAdapter(TotalNutrientsAdapter());
+  Hive.registerAdapter(EnercKcalAdapter());
+  Hive.registerAdapter(ProcntAdapter());
+  Hive.registerAdapter(FatAdapter());
+  Hive.registerAdapter(ChocdfAdapter());
   await Hive.openBox<Recipe>(AppStrings.favBox);
+  await Hive.openBox<Recipe>(AppStrings.shoppingBox);
 
   setupServiceLocator();
   runApp(const CookEE());

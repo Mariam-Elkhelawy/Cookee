@@ -168,53 +168,23 @@ class TotalNutrientsAdapter extends TypeAdapter<TotalNutrients> {
     return TotalNutrients(
       enerckcal: fields[0] as EnercKcal?,
       fat: fields[1] as Fat?,
-      fasat: fields[2] as Fasat?,
-      fatrn: fields[3] as Fatrn?,
-      fams: fields[4] as Fams?,
-      fapu: fields[5] as Fapu?,
-      chocdf: fields[6] as Chocdf?,
-      cHOCDFnet: fields[7] as ChocdfNet?,
-      fibtg: fields[8] as Fibtg?,
-      sugar: fields[9] as Sugar?,
-      procnt: fields[10] as Procnt?,
-      chole: fields[11] as Chole?,
-      na: fields[12] as Na?,
-      ca: fields[13] as Ca?,
+      chocdf: fields[2] as Chocdf?,
+      procnt: fields[3] as Procnt?,
     );
   }
 
   @override
   void write(BinaryWriter writer, TotalNutrients obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.enerckcal)
       ..writeByte(1)
       ..write(obj.fat)
       ..writeByte(2)
-      ..write(obj.fasat)
-      ..writeByte(3)
-      ..write(obj.fatrn)
-      ..writeByte(4)
-      ..write(obj.fams)
-      ..writeByte(5)
-      ..write(obj.fapu)
-      ..writeByte(6)
       ..write(obj.chocdf)
-      ..writeByte(7)
-      ..write(obj.cHOCDFnet)
-      ..writeByte(8)
-      ..write(obj.fibtg)
-      ..writeByte(9)
-      ..write(obj.sugar)
-      ..writeByte(10)
-      ..write(obj.procnt)
-      ..writeByte(11)
-      ..write(obj.chole)
-      ..writeByte(12)
-      ..write(obj.na)
-      ..writeByte(13)
-      ..write(obj.ca);
+      ..writeByte(3)
+      ..write(obj.procnt);
   }
 
   @override
@@ -224,6 +194,166 @@ class TotalNutrientsAdapter extends TypeAdapter<TotalNutrients> {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is TotalNutrientsAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class EnercKcalAdapter extends TypeAdapter<EnercKcal> {
+  @override
+  final int typeId = 3;
+
+  @override
+  EnercKcal read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return EnercKcal(
+      label: fields[0] as String?,
+      quantity: fields[1] as num?,
+      unit: fields[2] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, EnercKcal obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.label)
+      ..writeByte(1)
+      ..write(obj.quantity)
+      ..writeByte(2)
+      ..write(obj.unit);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EnercKcalAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ProcntAdapter extends TypeAdapter<Procnt> {
+  @override
+  final int typeId = 4;
+
+  @override
+  Procnt read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Procnt(
+      label: fields[0] as String?,
+      quantity: fields[1] as num?,
+      unit: fields[2] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Procnt obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.label)
+      ..writeByte(1)
+      ..write(obj.quantity)
+      ..writeByte(2)
+      ..write(obj.unit);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProcntAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class FatAdapter extends TypeAdapter<Fat> {
+  @override
+  final int typeId = 5;
+
+  @override
+  Fat read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Fat(
+      label: fields[0] as String?,
+      quantity: fields[1] as num?,
+      unit: fields[2] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Fat obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.label)
+      ..writeByte(1)
+      ..write(obj.quantity)
+      ..writeByte(2)
+      ..write(obj.unit);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FatAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class ChocdfAdapter extends TypeAdapter<Chocdf> {
+  @override
+  final int typeId = 6;
+
+  @override
+  Chocdf read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return Chocdf(
+      label: fields[0] as String?,
+      quantity: fields[1] as num?,
+      unit: fields[2] as String?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Chocdf obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.label)
+      ..writeByte(1)
+      ..write(obj.quantity)
+      ..writeByte(2)
+      ..write(obj.unit);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ChocdfAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

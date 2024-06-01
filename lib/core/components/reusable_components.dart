@@ -1,6 +1,7 @@
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 Widget unDefinedRoute() {
@@ -88,16 +89,16 @@ Container customButton(
   );
 }
 
-// customToast({required String message}) {
-//   return Fluttertoast.showToast(
-//       msg: message,
-//       toastLength: Toast.LENGTH_SHORT,
-//       gravity: ToastGravity.BOTTOM,
-//       backgroundColor: AppColor.primaryColor,
-//       timeInSecForIosWeb: 3,
-//       textColor: AppColor.whiteColor,
-//       fontSize: 13.0);
-// }
+customToast({required String message}) {
+  return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: AppColor.primaryColor,
+      timeInSecForIosWeb: 3,
+      textColor: AppColor.whiteColor,
+      fontSize: 13.0);
+}
 Widget customLoading() {
   return Center(
     child: LoadingIndicator(

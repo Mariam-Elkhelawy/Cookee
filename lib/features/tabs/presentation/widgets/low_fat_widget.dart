@@ -1,4 +1,5 @@
 import 'package:CookEE/config/routes/app_routes_names.dart';
+import 'package:CookEE/core/components/reusable_components.dart';
 import 'package:CookEE/core/utils/app_colors.dart';
 import 'package:CookEE/core/utils/app_images.dart';
 import 'package:CookEE/core/utils/app_strings.dart';
@@ -108,41 +109,40 @@ class LowFatWidget extends StatelessWidget {
                       ],
                       color: AppColor.whiteColor),
                   child: Padding(
-                      padding: EdgeInsets.all(12.r),
-                      child: saved
-                          ? InkWell(
-                        onTap: () async {
-                          await favBox.delete(recipe.label);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('deleted')));
-                        },
-                        child: const Icon(
-                          Icons.favorite_sharp,
-                          color: AppColor.primaryColor,size: 18,
-                        ),
-                      )
-                          : InkWell(
-                        onTap: () async {
-                          await favBox.put(
-                            recipe.label,
-                            Recipe(
-                                image: recipe.image,
-                                label: recipe.label,
-                                // totalNutrients:
-                                //     recipe.totalNutrients,
-                                calories: recipe.calories,
-                                totalTime: recipe.totalTime,
-                                source: recipe.source,
-                                ingredients: recipe.ingredients),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('added')));
-                        },
-                        child: const Icon(
-                          Icons.favorite_border,
-                          color: AppColor.primaryColor,size: 18,
-                        ),
-                      ),),
+                    padding: EdgeInsets.all(12.r),
+                    child: saved
+                        ? InkWell(
+                            onTap: () async {
+                              await favBox.delete(recipe.label);
+                              customToast(message: AppStrings.removeItem);
+                            },
+                            child: const Icon(
+                              Icons.favorite_sharp,
+                              color: AppColor.primaryColor,
+                              size: 18,
+                            ),
+                          )
+                        : InkWell(
+                            onTap: () async {
+                              await favBox.put(
+                                recipe.label,
+                                Recipe(
+                                    image: recipe.image,
+                                    label: recipe.label,
+                                    calories: recipe.calories,
+                                    totalTime: recipe.totalTime,
+                                    source: recipe.source,
+                                    ingredients: recipe.ingredients),
+                              );
+                              customToast(message: AppStrings.saveItem);
+                            },
+                            child: const Icon(
+                              Icons.favorite_border,
+                              color: AppColor.primaryColor,
+                              size: 18,
+                            ),
+                          ),
+                  ),
                 ),
               );
             },
