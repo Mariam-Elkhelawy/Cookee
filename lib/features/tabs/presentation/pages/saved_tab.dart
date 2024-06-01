@@ -1,6 +1,6 @@
-import 'package:CookEE/core/utils/app_strings.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
-import 'package:CookEE/features/tabs/presentation/widgets/saved_widget.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/features/tabs/presentation/widgets/saved_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';

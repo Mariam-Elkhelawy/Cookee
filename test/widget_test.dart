@@ -6,14 +6,14 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 
-import 'package:CookEE/cookEe.dart';
+import 'package:YumFind/YumFind.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const CookEE());
+    await tester.pumpWidget(const YumFind());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

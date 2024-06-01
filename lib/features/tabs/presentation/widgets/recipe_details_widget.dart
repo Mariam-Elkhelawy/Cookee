@@ -1,7 +1,7 @@
-import 'package:CookEE/core/utils/app_images.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_images.dart';
+import 'package:YumFind/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsWidget extends StatelessWidget {

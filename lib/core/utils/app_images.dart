@@ -1,4 +1,4 @@
-import 'package:CookEE/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppImages {

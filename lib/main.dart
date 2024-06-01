@@ -1,9 +1,9 @@
-import 'package:CookEE/cookEe.dart';
-import 'package:CookEE/core/utils/app_strings.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/YumFind.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'core/locator/service_locator.dart';
+import 'features/tabs/data/models/SearchModel.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +17,8 @@ void main() async {
   Hive.registerAdapter(FatAdapter());
   Hive.registerAdapter(ChocdfAdapter());
   await Hive.openBox<Recipe>(AppStrings.favBox);
-  await Hive.openBox<Recipe>(AppStrings.shoppingBox);
+  await Hive.openBox<Ingredients>(AppStrings.shoppingBox);
 
   setupServiceLocator();
-  runApp(const CookEE());
+  runApp(const YumFind());
 }

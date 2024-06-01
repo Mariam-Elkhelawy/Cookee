@@ -1,16 +1,16 @@
 import 'dart:async';
-import 'package:CookEE/core/components/reusable_components.dart';
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/app_strings.dart';
-import 'package:CookEE/core/utils/styles.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
-import 'package:CookEE/features/tabs/presentation/search_cubit/search_cubit.dart';
-import 'package:CookEE/features/tabs/presentation/widgets/quick_search.dart';
-import 'package:CookEE/features/tabs/presentation/widgets/search_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:YumFind/core/components/reusable_components.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
+import 'package:YumFind/core/utils/styles.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/features/tabs/presentation/search_cubit/search_cubit.dart';
+import 'package:YumFind/features/tabs/presentation/widgets/quick_search.dart';
+import 'package:YumFind/features/tabs/presentation/widgets/search_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({super.key});

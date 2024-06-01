@@ -15,12 +15,13 @@ class AppStrings {
   static const String quick = 'Quick Search';
   static const String tags = 'Popular Tags';
   static const String favBox = 'Fav';
-  static const String shoppingBox = 'ShoppingBox';
+  static const String shoppingBox = 'Shopping';
   static const String lowFat = 'Low Fat';
   static const String ingredients = 'Ingredients';
   static const String cooking = 'Start Cooking';
   static const String share = 'Share Recipe';
   static const String source = 'Source : ';
+  static const String remove = 'Remove Item';
   static const String saveItem = 'Item Saved Successfully';
   static const String addIngredient = 'Ingredient added to list successfully';
   static const String removeItem = 'Item removed from saved';

@@ -1,8 +1,8 @@
-import 'package:CookEE/core/api/api_manager.dart';
-import 'package:CookEE/core/api/end_points.dart';
-import 'package:CookEE/core/errors/failures.dart';
-import 'package:CookEE/core/utils/constants.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/core/api/api_manager.dart';
+import 'package:YumFind/core/api/end_points.dart';
+import 'package:YumFind/core/errors/failures.dart';
+import 'package:YumFind/core/utils/constants.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

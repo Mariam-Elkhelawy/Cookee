@@ -1,15 +1,15 @@
-import 'package:CookEE/core/components/reusable_components.dart';
-import 'package:CookEE/core/locator/service_locator.dart';
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/styles.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
-import 'package:CookEE/features/tabs/data/repositories/search_repo_implement.dart';
-import 'package:CookEE/features/tabs/presentation/search_cubit/search_cubit.dart';
-import 'package:CookEE/features/tabs/presentation/widgets/search_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:YumFind/core/components/reusable_components.dart';
+import 'package:YumFind/core/locator/service_locator.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/styles.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/features/tabs/data/repositories/search_repo_implement.dart';
+import 'package:YumFind/features/tabs/presentation/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:YumFind/features/tabs/presentation/widgets/search_widget.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -29,7 +29,10 @@ class SearchScreen extends StatelessWidget {
             style: AppStyles.bodyL.copyWith(color: AppColor.whiteColor),
           ),
           leading: IconButton(
-            icon: const Icon(CupertinoIcons.back,color: AppColor.whiteColor,),
+            icon: const Icon(
+              CupertinoIcons.back,
+              color: AppColor.whiteColor,
+            ),
             onPressed: () {
               Navigator.pop(context);
             },

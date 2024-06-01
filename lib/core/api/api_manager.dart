@@ -1,6 +1,7 @@
-import 'package:CookEE/core/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
+import '../utils/constants.dart';
 
 @lazySingleton
 class ApiManager {

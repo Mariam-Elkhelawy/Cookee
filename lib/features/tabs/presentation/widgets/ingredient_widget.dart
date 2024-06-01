@@ -1,8 +1,8 @@
-import 'package:CookEE/core/components/reusable_components.dart';
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/app_strings.dart';
-import 'package:CookEE/core/utils/styles.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/core/components/reusable_components.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
+import 'package:YumFind/core/utils/styles.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,7 @@ class IngredientWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var shoppingBox = Hive.box<Recipe>(AppStrings.shoppingBox);
+    var shoppingBox = Hive.box<Ingredients>(AppStrings.shoppingBox);
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.0.w),
@@ -67,7 +67,7 @@ class IngredientWidget extends StatelessWidget {
                       valueListenable: shoppingBox.listenable(),
                       builder: (context, value, _) {
                         final bool added =
-                            shoppingBox.containsKey(ingredient[index].text);
+                            shoppingBox.containsKey(ingredient[index].food);
                         return added
                             ? IconButton(
                                 icon: const Icon(
@@ -77,7 +77,7 @@ class IngredientWidget extends StatelessWidget {
                                 ),
                                 onPressed: () async {
                                   await shoppingBox
-                                      .delete(ingredient[index].text);
+                                      .delete(ingredient[index].food);
                                   customToast(
                                       message: AppStrings.removeIngredient);
                                 },
@@ -90,8 +90,14 @@ class IngredientWidget extends StatelessWidget {
                                 ),
                                 onPressed: () async {
                                   await shoppingBox.put(
-                                    ingredient[index].text,
-                                    Recipe(ingredients: ingredient),
+                                    ingredient[index].food,
+                                    Ingredients(
+                                        image: ingredient[index].image,
+                                        text: ingredient[index].text,
+                                        food: ingredient[index].food,
+                                        measure: ingredient[index].measure,
+                                        weight: ingredient[index].weight,
+                                        quantity: ingredient[index].quantity),
                                   );
                                   customToast(
                                       message: AppStrings.addIngredient);

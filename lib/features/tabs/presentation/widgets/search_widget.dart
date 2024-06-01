@@ -1,9 +1,9 @@
-import 'package:CookEE/config/routes/app_routes_names.dart';
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/app_images.dart';
-import 'package:CookEE/core/utils/app_strings.dart';
-import 'package:CookEE/core/utils/styles.dart';
-import 'package:CookEE/features/tabs/data/models/SearchModel.dart';
+import 'package:YumFind/config/routes/app_routes_names.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_images.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
+import 'package:YumFind/core/utils/styles.dart';
+import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

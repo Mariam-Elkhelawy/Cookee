@@ -1,5 +1,5 @@
-import 'package:CookEE/core/utils/app_colors.dart';
-import 'package:CookEE/core/utils/styles.dart';
+import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
