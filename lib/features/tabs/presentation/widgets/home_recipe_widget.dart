@@ -142,6 +142,7 @@ class HomeRecipeWidget extends StatelessWidget {
                                     label: recipe.label,
                                     calories: recipe.calories,
                                     totalTime: recipe.totalTime,
+                                    totalNutrients: recipe.totalNutrients,
                                     source: recipe.source,
                                     ingredients: recipe.ingredients),
                               );

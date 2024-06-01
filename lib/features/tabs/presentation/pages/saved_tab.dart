@@ -16,6 +16,7 @@ class SavedTab extends StatelessWidget {
       valueListenable: favBox.listenable(),
       builder: (context, Box<Recipe> box, _) {
         var data = box.values.toList();
+
         return SizedBox(
           height: 800.h,
           child: GridView.builder(
@@ -29,7 +30,6 @@ class SavedTab extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               var recipe = data[index];
-
               return SavedWidget(recipe: recipe);
             },
           ),

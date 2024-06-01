@@ -131,7 +131,7 @@ class LowFatWidget extends StatelessWidget {
                                     label: recipe.label,
                                     calories: recipe.calories,
                                     totalTime: recipe.totalTime,
-                                    source: recipe.source,
+                                    source: recipe.source,totalNutrients: recipe.totalNutrients,
                                     ingredients: recipe.ingredients),
                               );
                               customToast(message: AppStrings.saveItem);
