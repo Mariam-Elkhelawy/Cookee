@@ -1,4 +1,5 @@
 import 'package:YumFind/core/utils/app_strings.dart';
+import 'package:YumFind/core/utils/styles.dart';
 import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
 import 'package:YumFind/features/tabs/presentation/widgets/saved_widget.dart';
 import 'package:flutter/material.dart';
@@ -17,23 +18,33 @@ class SavedTab extends StatelessWidget {
       builder: (context, Box<Recipe> box, _) {
         var data = box.values.toList();
 
-        return SizedBox(
-          height: 800.h,
-          child: GridView.builder(
-            itemCount: data.length,
-            padding: EdgeInsets.only(right: 20.w, top: 20.h, bottom: 105.h),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 16.w,
-              crossAxisSpacing: 16.h,
-              childAspectRatio: .75,
-            ),
-            itemBuilder: (context, index) {
-              var recipe = data[index];
-              return SavedWidget(recipe: recipe);
-            },
-          ),
-        );
+        return data.isEmpty
+            ? Column(
+                children: [
+                  SizedBox(height: 55.h),
+                  Image.asset('assets/images/empty_saved.png'),
+                  Text('No saved recipes yet! \n'
+                      'Your favorite recipes will appear here!',textAlign: TextAlign.center,style: AppStyles.bodyM.copyWith(fontSize: 16.sp),)
+                ],
+              )
+            : SizedBox(
+                height: 800.h,
+                child: GridView.builder(
+                  itemCount: data.length,
+                  padding:
+                      EdgeInsets.only(right: 20.w, top: 20.h, bottom: 105.h),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16.w,
+                    crossAxisSpacing: 16.h,
+                    childAspectRatio: .75,
+                  ),
+                  itemBuilder: (context, index) {
+                    var recipe = data[index];
+                    return SavedWidget(recipe: recipe);
+                  },
+                ),
+              );
       },
     );
   }

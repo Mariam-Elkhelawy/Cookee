@@ -1,6 +1,7 @@
 import 'package:YumFind/config/routes/app_routes_names.dart';
 import 'package:YumFind/core/components/reusable_components.dart';
 import 'package:YumFind/features/layout/home_screen.dart';
+import 'package:YumFind/features/onboarding/onboarding_screen.dart';
 import 'package:YumFind/features/splash_screen.dart';
 import 'package:YumFind/features/tabs/presentation/pages/recipe_details_screen.dart';
 import 'package:YumFind/features/tabs/presentation/pages/search_screen.dart';
@@ -11,7 +12,9 @@ class AppRoutes {
     switch (settings.name) {
       case AppRoutesName.splash:
         return MaterialPageRoute(
-            builder: (context) => const SplashScreen(), settings: settings);
+            builder: (context) => const SplashScreen(), settings: settings);  case AppRoutesName.onboarding:
+        return MaterialPageRoute(
+            builder: (context) => const OnboardingScreen(), settings: settings);
       case AppRoutesName.home:
         return MaterialPageRoute(
             builder: (context) => const HomeScreen(), settings: settings);
