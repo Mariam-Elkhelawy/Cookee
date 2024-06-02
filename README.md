@@ -5,10 +5,8 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 ## Table of Contents 📜
 - [Demo 🎥](#demo)
 - [Features ✨](#features)
-- [Technologies Used 💻](#TechnologiesUsed)
-- [Installation ⚙️](#installation)
-- [Usage 📖](#usage)
 - [Technologies Used 🛠️](#technologies-used)
+- [Installation ⚙️](#installation)
 - [Contributing 🤝](#contributing)
 - [License 📄](#license)
 - [Contact 📧](#contact)
@@ -57,7 +55,7 @@ Ensure you have the following installed:
    ```bash
    flutter pub get
 
-4. Define API Keys in Constants File : </br> Navigate to the utils folder located within the core folder and add your Api key :
+4. Define API Keys in Constants File : </br>   Navigate to the utils folder located within the core folder and add your Api key :
 
    ```bash
    static const String apiKey = 'your_api_key_here';
@@ -67,3 +65,24 @@ Ensure you have the following installed:
    ```bash
    flutter run
 
+## Contributing 🤝
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+1. **Fork the Project** 🍴
+2. **Create your Feature Branch** 🌟
+    ```bash
+    git checkout -b feature/AmazingFeature
+    ```
+3. **Commit your Changes** ✨
+    ```bash
+    git commit -m 'Add some AmazingFeature'
+    ```
+4. **Push to the Branch** 🚀
+    ```bash
+    git push origin feature/AmazingFeature
+    ```
+
+Your changes will be reviewed and merged if they contribute positively to the project. Thank you for your efforts in improving Yum-Find!
+
+--- 
