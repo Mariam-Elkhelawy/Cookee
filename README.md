@@ -30,8 +30,6 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 - 📱 **Responsive Design:** Seamlessly adapts to different screen sizes for a consistent user experience.
 
 ## Technologies Used 💻
-
-- 🚀 **Flutter:** Cross-platform framework for building mobile applications.
 - 📦 **Hive:** Lightweight and fast NoSQL database for storing recipe and shopping list data.
 - 🎛️ **Cubit:** State management library for managing application state and logic.
 - 🍲 **Edamam API:** Used for fetching recipe data and nutritional information.
