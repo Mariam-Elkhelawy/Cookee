@@ -45,15 +45,19 @@ Ensure you have the following installed:
 ### Clone the Repository 🌀
 
 1. Clone the repository:
+ 
    ```bash
    git clone https://github.com/Mariam-Elkhelawy/Yum-Find.git
 2. Navigate to the project directory:
+ 
    ```bash
    cd Yum-Find
 3. Install dependencies:
+ 
    ```bash
    flutter pub get
 4. Run the app:
+
    ```bash
    flutter run
 
