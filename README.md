@@ -41,18 +41,19 @@ To get a local copy up and running, follow these steps.
 Ensure you have the following installed:
 - [Flutter](https://flutter.dev/docs/get-started/install)
 - [Dart](https://dart.dev/get-dart)
-
-### Clone the Repository 🌀
-
-
-
-- **Flutter**: [Install Flutter](https://flutter.dev/docs/get-started/install)
-- **Dart**: [Install Dart](https://dart.dev/get-dart)
-
+  
 ### Clone the Repository 🌀
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Mariam-Elkhelawy/Yum-Find.git
-
+2. Navigate to the project directory:
+   ```bash
+   cd Yum-Find
+3. Install dependencies:
+   ```bash
+   flutter pub get
+4. Run the app:
+   ```bash
+   flutter run
 
