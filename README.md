@@ -3,9 +3,9 @@
 Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you discover, save, and share recipes from around the world. Whether you are looking for a quick weeknight dinner or planning a festive feast, Yum-Find has got you covered!
 
 ## Table of Contents 📜
-- [Demo] 🎥(#demo)
-- [Features]✨(#features)
-- [Technologies Used 🛠️](#technologies-used)
+- [Demo](#demo) 🎥
+- [Features](#features) ✨
+- [Technologies Used](#technologies-used) 🛠️
 - [Installation ⚙️](#installation)
 - [Contributing 🤝](#contributing)
 - [Contact 📧](#contact)
