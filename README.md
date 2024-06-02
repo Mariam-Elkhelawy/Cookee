@@ -19,14 +19,16 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 ![Yum-Find Screenshot](https://your-image-link.com/screenshot.png)
 
 ## Features ✨
+- 🔍 **Recipe Search:** Quickly find recipes using keywords. 
+- ⚡️ **Quick Search:** Access popular and trending recipes instantly.
+- 📑 **Detailed Views:** Explore detailed recipe instructions and ingredients.
+- ❤️ **Favorites:** Save your favorite recipes for easy access.
+- 🛒 **Shopping List:** Manage shopping lists by adding missing ingredients.
+- 📋 **Detailed Instructions**: Step-by-step cooking instructions with images and videos.
+- 🍎 **Nutritional Information**: Get nutritional breakdowns for each recipe.
+- 📱 **Responsive Design:** Seamlessly adapts to different screen sizes for a consistent user experience.
 
-- **Recipe Search 🔍**: Find recipes based on ingredients, cuisine, meal type, and more.
-- **Save Favorites ❤️**: Bookmark your favorite recipes for easy access.
-- **Create and Share ✍️**: Add your own recipes and share them with the community.
-- **Detailed Instructions 📋**: Step-by-step cooking instructions with images and videos.
-- **Nutritional Information 🍎**: Get nutritional breakdowns for each recipe.
-- **User Reviews and Ratings ⭐**: See and add reviews and ratings for recipes.
-- **Responsive Design 📱**: Enjoy Yum-Find on both Android and iOS devices.
+
 
 ## Installation ⚙️
 
