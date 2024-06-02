@@ -9,16 +9,16 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Installation ⚙️](#installation)
 - [Contributing 🤝](#contributing)
 - [Contact 📧](#contact)
-
-## Demo 🎥
+  
 <a id="demo"></a>
+## Demo 🎥
 
 Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 
 ![Yum-Find Screenshot](https://your-image-link.com/screenshot.png)
 
-## Features ✨
 <a id="features"></a>
+## Features ✨
 
 - 🔍 **Recipe Search:** Quickly find recipes using keywords. 
 - ⚡️ **Quick Search:** Access popular and trending recipes instantly.
