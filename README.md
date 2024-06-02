@@ -6,9 +6,9 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Demo](#demo) 🎥
 - [Features](#features) ✨
 - [Technologies Used](#technologies-used) 🛠️
-- [Installation ⚙️](#installation)
-- [Contributing 🤝](#contributing)
-- [Contact 📧](#contact)
+- [Installation](#installation) ⚙️
+- [Contributing](#contributing) 🤝
+- [Contact](#contact) 📧
   
 <a id="demo"></a>
 ## Demo 🎥
