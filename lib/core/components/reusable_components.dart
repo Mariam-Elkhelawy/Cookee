@@ -1,6 +1,7 @@
 import 'package:YumFind/core/utils/app_colors.dart';
 import 'package:YumFind/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
@@ -99,6 +100,7 @@ customToast({required String message}) {
       textColor: AppColor.whiteColor,
       fontSize: 13.0);
 }
+
 Widget customLoading() {
   return Center(
     child: LoadingIndicator(
@@ -113,5 +115,13 @@ Widget customLoading() {
 }
 
 Widget customError(String errorMessage) {
-  return Center(child: Text(errorMessage, style: AppStyles.bodyM));
+  return SizedBox(
+      width: 300.w,
+      child: Center(
+        child: Text(
+          errorMessage,
+          style: AppStyles.bodyM,
+          textAlign: TextAlign.center,
+        ),
+      ));
 }

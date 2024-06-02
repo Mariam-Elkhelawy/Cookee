@@ -45,6 +45,7 @@ class _SearchTabState extends State<SearchTab> {
   Future<void> refreshData() async {
     if (searchedVal != null && searchedVal!.isNotEmpty) {
       context.read<SearchCubit>().getSearchRecipes(searchedVal!);
+      setState(() {});
     }
   }
 
@@ -63,7 +64,7 @@ class _SearchTabState extends State<SearchTab> {
               borderColor: const Color(0xFFebebea),
               hintText: AppStrings.searchHint,
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+              EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
               fillColor: const Color(0xFFebebea),
               radius: 15.r,
               prefixIcon: const Icon(
@@ -79,6 +80,7 @@ class _SearchTabState extends State<SearchTab> {
           if (searchedVal != null && searchedVal!.isNotEmpty) ...[
             BlocBuilder<SearchCubit, SearchState>(
               builder: (context, state) {
+
                 if (state is SearchFailureState) {
                   return customError(state.errorMessage);
                 }

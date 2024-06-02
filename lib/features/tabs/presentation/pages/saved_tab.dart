@@ -21,10 +21,14 @@ class SavedTab extends StatelessWidget {
         return data.isEmpty
             ? Column(
                 children: [
-                  SizedBox(height: 55.h),
+                  SizedBox(height: 70.h),
                   Image.asset('assets/images/empty_saved.png'),
-                  Text('No saved recipes yet! \n'
-                      'Your favorite recipes will appear here!',textAlign: TextAlign.center,style: AppStyles.bodyM.copyWith(fontSize: 16.sp),)
+                  Text(
+                    'No saved recipes yet! \n'
+                    'Your favorite recipes will appear here!',
+                    textAlign: TextAlign.center,
+                    style: AppStyles.bodyM.copyWith(fontSize: 16.sp),
+                  )
                 ],
               )
             : SizedBox(
@@ -37,7 +41,7 @@ class SavedTab extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 16.w,
                     crossAxisSpacing: 16.h,
-                    childAspectRatio: .75,
+                    childAspectRatio: .79,
                   ),
                   itemBuilder: (context, index) {
                     var recipe = data[index];

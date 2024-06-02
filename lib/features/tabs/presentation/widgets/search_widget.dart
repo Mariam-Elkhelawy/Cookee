@@ -39,7 +39,7 @@ class SearchWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.only(left: 16.w,top: 14.h,bottom: 14.h,right: 6.w),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10.r),
                   child: FancyShimmerImage(
@@ -66,7 +66,7 @@ class SearchWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 4.h),
                   SizedBox(
-                    width: 175.w,
+                    width: 198.w,
                     child: Text(
                       '${AppStrings.source}${recipe.source}',
                       style: AppStyles.bodyM.copyWith(
@@ -77,35 +77,38 @@ class SearchWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  SizedBox(
-                    width: 200.w,
-                    child: Row(
-                      children: [
-                        const ImageIcon(
-                          AssetImage(AppImages.calories),
-                          color: Color(0xFFf5a06f),
-                          size: 20,
-                        ),
-                        SizedBox(width: 6.w),
-                        Text(
-                          recipe.calories?.truncate().toString() ?? '',
-                          style: AppStyles.bodyM.copyWith(
-                            color: const Color(0xFFcbcbcb),
+                  Padding(
+                    padding:  EdgeInsets.only(right: 16.w),
+                    child: SizedBox(
+                      width: 198.w,
+                      child: Row(
+                        children: [
+                          const ImageIcon(
+                            AssetImage(AppImages.calories),
+                            color: Color(0xFFf5a06f),
+                            size: 20,
                           ),
-                        ),
-                        const Spacer(),
-                        Icon(
-                          Icons.access_time_outlined,
-                          color: AppColor.primaryColor.withOpacity(.8),
-                          size: 16,
-                        ),
-                        SizedBox(width: 6.w),
-                        Text(
-                          '${recipe.totalTime?.truncate().toString()} min',
-                          style: AppStyles.bodyM
-                              .copyWith(color: const Color(0xFFcbd1d2)),
-                        )
-                      ],
+                          SizedBox(width: 6.w),
+                          Text(
+                            recipe.calories?.truncate().toString() ?? '',
+                            style: AppStyles.bodyM.copyWith(
+                              color: const Color(0xFFcbcbcb),
+                            ),
+                          ),
+                          const Spacer(),
+                          Icon(
+                            Icons.access_time_outlined,
+                            color: AppColor.primaryColor.withOpacity(.8),
+                            size: 16,
+                          ),
+                          SizedBox(width: 6.w),
+                          Text(
+                            '${recipe.totalTime?.truncate().toString()} min',
+                            style: AppStyles.bodyM
+                                .copyWith(color: const Color(0xFFcbd1d2)),
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],

@@ -1,6 +1,8 @@
 import 'package:YumFind/config/routes/app_routes_names.dart';
 import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_strings.dart';
 import 'package:YumFind/core/utils/styles.dart';
+import 'package:YumFind/features/onboarding/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,45 +31,46 @@ class OnboardingScreenState extends State<OnboardingScreen> {
               });
             },
             children: const [
-              OnboardingPage(
-                title: "Discover New Recipes",
-                description:
-                    "Explore thousands of delicious recipes from around the world ,search and find the perfect dish for every occasion.",
+              OnboardingWidget(
+                title: AppStrings.onboardTitle1,
+                description: AppStrings.onboardDescription1,
                 imagePath: "assets/images/1.png",
               ),
-              OnboardingPage(
-                title: "Save Your Favorites",
-                description:
-                    "Keep track of your favorite recipes and access them anytime, anywhere with our easy-to-use saved feature.",
+              OnboardingWidget(
+                title: AppStrings.onboardTitle2,
+                description: AppStrings.onboardDescription2,
                 imagePath: "assets/images/2.png",
               ),
-              OnboardingPage(
-                title: "Create Shopping Lists",
-                description:
-                    "Generate shopping lists with ease and make sure you have all the ingredients you need for your next culinary adventure.",
-                imagePath: "assets/images/3.png",
+              OnboardingWidget(
+                title: AppStrings.onboardTitle3,
+                description: AppStrings.onboardDescription3,
+                imagePath: "assets/images/4.png",
               ),
             ],
           ),
           Positioned(
-            bottom: 30.0,
-            left: 30.0,
-            right: 30.0,
+            bottom: 30.0.h,
+            left: 30.0.w,
+            right: 30.0.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  onPressed: () {
-                    pageController.animateToPage(2,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.ease);
-                  },
-                  child: Text(
-                    "Skip",
-                    style: AppStyles.bodyM.copyWith(
-                        color: AppColor.primaryColor, fontSize: 14.sp),
-                  ),
-                ),
+                currentPage == 2
+                    ? TextButton(onPressed: () {}, child: const Text(''))
+                    : TextButton(
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            AppRoutesName.home,
+                            (route) => false,
+                          );
+                        },
+                        child: Text(
+                          "Skip",
+                          style: AppStyles.bodyM.copyWith(
+                              color: AppColor.primaryColor, fontSize: 14.sp),
+                        ),
+                      ),
                 Row(
                   children: List.generate(3, (index) {
                     return Container(
@@ -87,7 +90,11 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                 InkWell(
                   onTap: () {
                     if (currentPage == 2) {
-                      Navigator.pushNamed(context, AppRoutesName.home);
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        AppRoutesName.home,
+                        (route) => false,
+                      );
                     } else {
                       pageController.nextPage(
                           duration: const Duration(milliseconds: 500),
@@ -115,40 +122,6 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class OnboardingPage extends StatelessWidget {
-  final String title;
-  final String description;
-  final String imagePath;
-
-  const OnboardingPage({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.imagePath,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(imagePath),
-        SizedBox(height: 20.h),
-        Text(title,
-            style: AppStyles.bodyL.copyWith(color: AppColor.primaryColor)),
-        SizedBox(height: 10.0.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40.0.w),
-          child: Text(description,
-              textAlign: TextAlign.center,
-              style: AppStyles.bodyS
-                  .copyWith(color: AppColor.secondaryColor, fontSize: 16.sp)),
-        ),
-      ],
     );
   }
 }

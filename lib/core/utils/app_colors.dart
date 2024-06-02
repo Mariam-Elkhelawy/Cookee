@@ -11,5 +11,4 @@ class AppColor {
   static const Color blackColor = Colors.black;
   static Color blackHintColor = Colors.black.withOpacity(.7);
   static Color suffixGrey = const Color(0xFF808080);
-
 }

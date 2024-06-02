@@ -92,7 +92,6 @@ class LowFatWidget extends StatelessWidget {
             valueListenable: favBox.listenable(),
             builder: (context, Box<Recipe> box, _) {
               final bool saved = favBox.containsKey(recipe.label);
-
               return Positioned(
                 top: -10.h,
                 left: 4.w,
@@ -131,8 +130,11 @@ class LowFatWidget extends StatelessWidget {
                                     label: recipe.label,
                                     calories: recipe.calories,
                                     totalTime: recipe.totalTime,
-                                    source: recipe.source,totalNutrients: recipe.totalNutrients,
-                                    ingredients: recipe.ingredients),
+                                    source: recipe.source,
+                                    totalNutrients: recipe.totalNutrients,
+                                    ingredients: recipe.ingredients,
+                                    dishType: recipe.dishType,
+                                    dietLabels: recipe.dietLabels),
                               );
                               customToast(message: AppStrings.saveItem);
                             },

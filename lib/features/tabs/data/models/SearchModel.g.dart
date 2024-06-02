@@ -36,15 +36,13 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       mealType: (fields[16] as List?)?.cast<String>(),
       dishType: (fields[17] as List?)?.cast<String>(),
       totalNutrients: fields[18] as TotalNutrients?,
-      totalDaily: fields[19] as TotalDaily?,
-      digest: (fields[20] as List?)?.cast<Digest>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Recipe obj) {
     writer
-      ..writeByte(21)
+      ..writeByte(19)
       ..writeByte(0)
       ..write(obj.uri)
       ..writeByte(1)
@@ -82,11 +80,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       ..writeByte(17)
       ..write(obj.dishType)
       ..writeByte(18)
-      ..write(obj.totalNutrients)
-      ..writeByte(19)
-      ..write(obj.totalDaily)
-      ..writeByte(20)
-      ..write(obj.digest);
+      ..write(obj.totalNutrients);
   }
 
   @override

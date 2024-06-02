@@ -54,13 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(left: 20.w),
           child: Column(
             children: [
-              SizedBox(height: 65.h),
+              SizedBox(height: 55.h),
               Row(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppStrings.hi, style: AppStyles.bodyM),
                       RichText(
                         text: TextSpan(
                           children: [
@@ -85,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         icon: const Icon(
                           CupertinoIcons.search,
-                          size: 30,
+                          size: 26,
                           color: AppColor.primaryColor,
                         ),
                       ),

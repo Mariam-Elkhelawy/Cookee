@@ -20,7 +20,15 @@ class ShoppingTab extends StatelessWidget {
       builder: (context, Box<Ingredients> box, _) {
         var data = box.values.toList();
 
-        return SizedBox(
+        return data.isEmpty
+            ? Column(
+          children: [
+            SizedBox(height: 70.h),
+            Image.asset('assets/images/empty_shopping.png'),
+            Text('Your shopping list is empty. \n Start adding your missing ingredients !',textAlign: TextAlign.center,style: AppStyles.bodyM.copyWith(fontSize: 16.sp),)
+          ],
+        )
+            : SizedBox(
           height: 800.h,
           child: ListView.builder(
             padding: EdgeInsets.only(right: 20.w, top: 20.h, bottom: 105.h),

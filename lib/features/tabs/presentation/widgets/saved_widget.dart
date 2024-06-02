@@ -29,13 +29,9 @@ class SavedWidget extends StatelessWidget {
           arguments: recipe,
         );
       },
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.r),
-          color: AppColor.whiteColor,
-          border: Border.all(
-              color: AppColor.primaryColor.withOpacity(.3), width: 2),
-        ),
+      child: Material(
+        elevation: 10,
+        borderRadius: BorderRadius.circular(10.r),color: AppColor.whiteColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -53,7 +49,7 @@ class SavedWidget extends StatelessWidget {
                 ),
                 Positioned(
                   top: 8.h,
-                  left: 137.w,
+                  left: 140.w,
                   child: Container(
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle, color: AppColor.whiteColor),
@@ -66,9 +62,9 @@ class SavedWidget extends StatelessWidget {
                         child: const Icon(
                           Icons.favorite_sharp,
                           color: AppColor.primaryColor,
-                          size: 18,
+                          size: 16,
                         ),
-                      )),
+                      ),),
                 ),
               ],
             ),
@@ -81,12 +77,12 @@ class SavedWidget extends StatelessWidget {
                     height: 40.h,
                     child: Text(
                       recipe.label ?? '',
-                      style: AppStyles.bodyM.copyWith(fontSize: 16.sp),
+                      style: AppStyles.bodyM.copyWith(fontSize: 14.sp),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  SizedBox(height: 12.h),
+                  SizedBox(height: 8.h),
                   Row(
                     children: [
                       ImageIcon(
@@ -98,7 +94,7 @@ class SavedWidget extends StatelessWidget {
                       Text(
                         '${recipe.calories?.truncate() ?? 'N/A'} cal',
                         style: AppStyles.bodyS.copyWith(
-                          color: AppColor.primaryColor,
+                          color: AppColor.primaryColor,fontSize: 14.sp
                         ),
                       ),
                       const Spacer(),
@@ -114,7 +110,7 @@ class SavedWidget extends StatelessWidget {
                           child: const ImageIcon(
                             AssetImage(AppImages.share),
                             color: AppColor.whiteColor,
-                            size: 16,
+                            size: 14,
                           ),
                         ),
                       ),

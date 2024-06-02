@@ -9,6 +9,7 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchRepo) : super(SearchInitialState());
   SearchRepo searchRepo;
   Future<void> getSearchRecipes(String query) async {
+    emit(SearchLoadingState());
     final result = await searchRepo.searchRecipes(query);
     result.fold(
       (failure) {

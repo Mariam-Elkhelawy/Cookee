@@ -14,6 +14,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
+  Future<void> refreshData(BuildContext context, String searchQuery) async {
+    await context.read<SearchCubit>().getSearchRecipes(searchQuery);
+  }
+
   @override
   Widget build(BuildContext context) {
     String searchQuery = ModalRoute.of(context)!.settings.arguments as String;
@@ -56,16 +60,20 @@ class SearchScreen extends StatelessWidget {
                           .copyWith(color: AppColor.textColor),
                     ),
                   ),
-                  SizedBox(
-                    height: 770.h,
-                    child: ListView.builder(
-                      padding: EdgeInsets.only(
-                          bottom: 16.h, top: 12.h, left: 16.w, right: 16.w),
-                      itemCount: state.searchModel.hits!.length,
-                      itemBuilder: (context, index) {
-                        final recipe = state.searchModel.hits![index].recipe;
-                        return SearchWidget(recipe: recipe ?? Recipe());
-                      },
+                  Expanded(
+                    child: RefreshIndicator(
+                      onRefresh: () => refreshData(context, searchQuery),
+                      color: AppColor.primaryColor,
+                      backgroundColor: AppColor.whiteColor,
+                      child: ListView.builder(
+                        padding: EdgeInsets.only(
+                            bottom: 16.h, top: 12.h, left: 16.w, right: 16.w),
+                        itemCount: state.searchModel.hits!.length,
+                        itemBuilder: (context, index) {
+                          final recipe = state.searchModel.hits![index].recipe;
+                          return SearchWidget(recipe: recipe ?? Recipe());
+                        },
+                      ),
                     ),
                   ),
                 ],

@@ -144,7 +144,9 @@ class HomeRecipeWidget extends StatelessWidget {
                                     totalTime: recipe.totalTime,
                                     totalNutrients: recipe.totalNutrients,
                                     source: recipe.source,
-                                    ingredients: recipe.ingredients),
+                                    ingredients: recipe.ingredients,
+                                    dishType: recipe.dishType,
+                                    dietLabels: recipe.dietLabels),
                               );
                               customToast(message: AppStrings.saveItem);
                             },

@@ -54,7 +54,9 @@ class RecipeHeadlineWidget extends StatelessWidget {
                               calories: recipe.calories,
                               totalTime: recipe.totalTime,
                               source: recipe.source,
-                              ingredients: recipe.ingredients),
+                              ingredients: recipe.ingredients,
+                              dishType: recipe.dishType,
+                              dietLabels: recipe.dietLabels),
                         );
                         customToast(message: AppStrings.saveItem);
                       },

@@ -25,7 +25,17 @@ class AppStrings {
   static const String saveItem = 'Item Saved Successfully';
   static const String addIngredient = 'Ingredient added to list successfully';
   static const String removeItem = 'Item removed from saved';
-  static const String removeIngredient = 'Ingredient removed from list successfully';
+  static const String removeIngredient =
+      'Ingredient removed from list successfully';
+  static const String onboardTitle1 = 'Discover New Recipes';
+  static const String onboardTitle2 = 'Save Your Favorites';
+  static const String onboardTitle3 = 'Create Shopping Lists';
+  static const String onboardDescription1 =
+      'Explore thousands of delicious recipes from around the world ,search and find the perfect dish for every occasion.';
+  static const String onboardDescription2 =
+      'Keep track of your favorite recipes and access them anytime, anywhere with our easy-to-use saved feature.';
+  static const String onboardDescription3 =
+      'Generate shopping lists with ease and make sure you have all the ingredients you need for your next culinary adventure.';
   static const List<String> tabText = [breakFast, lunch, dinner, snack];
   static const List<String> quickSearch = [
     'Pasta',
