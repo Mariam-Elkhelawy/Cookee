@@ -11,6 +11,7 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Contact](#contact) 📧
   
 <a id="demo"></a>
+
 ## Demo 🎥
 
 Check out a live demo of Yum-Find [here](https://your-demo-link.com).
