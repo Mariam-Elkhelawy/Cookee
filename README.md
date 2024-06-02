@@ -8,7 +8,6 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Technologies Used 🛠️](#technologies-used)
 - [Installation ⚙️](#installation)
 - [Contributing 🤝](#contributing)
-- [License 📄](#license)
 - [Contact 📧](#contact)
 
 ## Demo 🎥
@@ -69,7 +68,7 @@ Ensure you have the following installed:
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-1. **Fork the Project** 🍴
+1. **Fork the Project** 
 2. **Create your Feature Branch** 🌟
     ```bash
     git checkout -b feature/AmazingFeature
@@ -84,5 +83,13 @@ Contributions are what make the open-source community such an amazing place to l
     ```
 
 Your changes will be reviewed and merged if they contribute positively to the project. Thank you for your efforts in improving Yum-Find!
+
+## Contact 📧
+
+Feel free to reach out if you have any questions or suggestions!
+
+- **LinkedIn**: [Mariam Elkhelawy](https://www.linkedin.com/in/mariam-elkhelawy-ab5183253/)
+- **Email**: [mariamelkhelawy2001@gmail.com](mailto:mariamelkhelawy2001@gmail.com)
+
 
 --- 
