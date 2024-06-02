@@ -57,14 +57,14 @@ Ensure you have the following installed:
    ```bash
    flutter pub get
 
-4. Define API Keys in Constants File 🔑
+4. Define API Keys in Constants File :
 
 Navigate to the utils folder located within the core folder and add your Api key :
 
-   ```bash
+    ```bash
        static const String apiKey = 'your_api_key_here';
    
-5. Run the app:  🚀
+5. Run the app:  
 
    ```bash
    flutter run
