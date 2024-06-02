@@ -36,18 +36,23 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 - 📱 **Responsive Design:** Utilized Flutter's layout widgets usind ScreenUtils.
 
 ## Installation ⚙️
-
 To get a local copy up and running, follow these steps.
-
 ### Prerequisites 📋
-
 Ensure you have the following installed:
 - [Flutter](https://flutter.dev/docs/get-started/install)
 - [Dart](https://dart.dev/get-dart)
 
 ### Clone the Repository 🌀
 
-```sh
-git clone https://github.com/Mariam-Elkhelawy/Yum-Find.git
-cd Yum-Find
+
+
+- **Flutter**: [Install Flutter](https://flutter.dev/docs/get-started/install)
+- **Dart**: [Install Dart](https://dart.dev/get-dart)
+
+### Clone the Repository 🌀
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Mariam-Elkhelawy/Yum-Find.git
+
 
