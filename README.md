@@ -17,6 +17,8 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 ![Yum-Find Screenshot](https://your-image-link.com/screenshot.png)
 
 ## Features ✨
+<a id="features"></a>
+
 - 🔍 **Recipe Search:** Quickly find recipes using keywords. 
 - ⚡️ **Quick Search:** Access popular and trending recipes instantly.
 - 📑 **Detailed Views:** Explore detailed recipe instructions and ingredients.
