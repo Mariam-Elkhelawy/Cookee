@@ -5,6 +5,7 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 ## Table of Contents 📜
 - [Demo 🎥](#demo)
 - [Features ✨](#features)
+- [Technologies Used 💻](#TechnologiesUsed)
 - [Installation ⚙️](#installation)
 - [Usage 📖](#usage)
 - [Technologies Used 🛠️](#technologies-used)
@@ -28,7 +29,13 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 - 🍎 **Nutritional Information**: Get nutritional breakdowns for each recipe.
 - 📱 **Responsive Design:** Seamlessly adapts to different screen sizes for a consistent user experience.
 
+## Technologies Used 💻
 
+- 🚀 **Flutter:** Cross-platform framework for building mobile applications.
+- 📦 **Hive:** Lightweight and fast NoSQL database for storing recipe and shopping list data.
+- 🎛️ **Cubit:** State management library for managing application state and logic.
+- 🍲 **Edamam API:** Used for fetching recipe data and nutritional information.
+- 📱 **Responsive Design:** Utilized Flutter's layout widgets usind ScreenUtils.
 
 ## Installation ⚙️
 
