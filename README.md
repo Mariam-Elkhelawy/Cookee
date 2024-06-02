@@ -29,16 +29,16 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 - 🍎 **Nutritional Information**: Get nutritional breakdowns for each recipe.
 - 📱 **Responsive Design:** Seamlessly adapts to different screen sizes for a consistent user experience.
 
-## Technologies Used 🛠️
 <a id="technologies-used"></a>
+## Technologies Used 🛠️
 
 - 📦 **Hive:** Lightweight and fast NoSQL database for storing recipe and shopping list data.
 - 🎛️ **Cubit:** State management library for managing application state and logic.
 - 🍲 **Edamam API:** Used for fetching recipe data and nutritional information.
 - 📱 **Responsive Design:** Utilized Flutter's layout widgets usind ScreenUtils.
 
-## Installation ⚙️
 <a id="installation"></a>
+## Installation ⚙️
 
 To get a local copy up and running, follow these steps.
 ### Prerequisites 📋
@@ -71,8 +71,8 @@ Ensure you have the following installed:
    ```bash
    flutter run
 
-## Contributing 🤝
 <a id="contributing"></a>
+## Contributing 🤝
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
@@ -95,8 +95,8 @@ Contributions are what make the open-source community such an amazing place to l
 
 Your changes will be reviewed and merged if they contribute positively to the project. Thank you for your efforts in improving Yum-Find!
 
-## Contact 📧
 <a id="contact"></a>
+## Contact 📧
 
 Feel free to reach out if you have any questions or suggestions!
 
