@@ -15,7 +15,7 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 
 --- 
 
-<img src = "https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/07a629b0-d4fd-4668-b7b9-7087db247d3b" >
+<img src = "https://github.com/Mariam-Elkhelawy/Yum-Find/blob/master/assets/screens/2.png" >
 
 --- 
 
