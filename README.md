@@ -27,6 +27,12 @@ Check out a live demo of Yum-Find [here](https://your-demo-link.com).
 
 ![Yum-Find Screenshot](https://your-image-link.com/screenshot.png)
 
+<video src='https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/5488cb41-da0f-4ed1-83a5-9d887f0a2e33
+'/>
+
+https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/5488cb41-da0f-4ed1-83a5-9d887f0a2e33
+
+
 <a id="features"></a>
 ## Features ✨
 
