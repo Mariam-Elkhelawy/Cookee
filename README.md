@@ -19,16 +19,6 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 
 --- 
 
-<a id="demo"></a>
-
-
-## Demo 🎥
-
-<video src='https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/72b71b45-2185-4118-b9f4-c2d5f02d14af
-'>
-</video>
-
---- 
 
 <a id="features"></a>
 ## Features ✨
@@ -41,6 +31,17 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - 📋 **Detailed Instructions**: Step-by-step cooking instructions with images and videos.
 - 🍎 **Nutritional Information**: Get nutritional breakdowns for each recipe.
 - 📱 **Responsive Design:** Seamlessly adapts to different screen sizes for a consistent user experience.
+
+<a id="demo"></a>
+
+
+## Demo 🎥
+
+<video src='https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/72b71b45-2185-4118-b9f4-c2d5f02d14af
+'>
+</video>
+
+--- 
 
 <a id="technologies-used"></a>
 ## Technologies Used 🛠️
