@@ -24,8 +24,6 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 
 ## Demo 🎥
 
-Check out a live demo of Yum-Find 
-
 <video src='https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/72b71b45-2185-4118-b9f4-c2d5f02d14af
 '>
 </video>
