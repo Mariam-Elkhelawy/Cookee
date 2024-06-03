@@ -9,7 +9,9 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Installation](#installation) ⚙️
 - [Contributing](#contributing) 🤝
 - [Contact](#contact) 📧
-  
+
+    <a href="url"><img src="https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/6b3eb35d-8bdc-4213-a35f-94c0ffc7deed" height="auto" width="200" style="border-radius:50%"></a>
+
 <a id="demo"></a>
 
 ## Demo 🎥
