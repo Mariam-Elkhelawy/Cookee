@@ -1,7 +1,9 @@
 class AppStrings {
-  static const String hi = 'Hi.. 👋🏻';
   static const String cook = 'Cook Like a';
   static const String chef = ' Chef';
+  static const String skip = 'Skip';
+  static const String done = 'Done';
+  static const String next = 'Next';
   static const String breakFast = 'BreakFast';
   static const String lunch = 'Lunch';
   static const String dinner = 'Dinner';
@@ -30,6 +32,10 @@ class AppStrings {
   static const String onboardTitle1 = 'Discover New Recipes';
   static const String onboardTitle2 = 'Save Your Favorites';
   static const String onboardTitle3 = 'Create Shopping Lists';
+  static const String shoppingEmpty =
+      'Your shopping list is empty. \n Start adding your missing ingredients !';
+  static const String savedEmpty = 'No saved recipes yet! \n'
+      'Your favorite recipes will appear here!';
   static const String onboardDescription1 =
       'Explore thousands of delicious recipes from around the world ,search and find the perfect dish for every occasion.';
   static const String onboardDescription2 =

@@ -17,6 +17,11 @@ class AppImages {
   static const String noRoom = 'assets/images/no_rooms.png';
   static const String calories = 'assets/images/cal.png';
   static const String share = 'assets/images/share_fill.png';
+  static const String onboarding1 = 'assets/images/onBoarding1.png';
+  static const String onboarding2 = 'assets/images/onBoarding2.png';
+  static const String onboarding3 = 'assets/images/onBoarding3.png';
+  static const String shoppingEmpty = 'assets/images/empty_shopping.png';
+  static const String savedEmpty = 'assets/images/empty_saved.png';
   static const List<String> quickSearchImages = [
     'assets/images/pasta.png',
     'assets/images/chicken.png',

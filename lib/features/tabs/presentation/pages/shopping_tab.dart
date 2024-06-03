@@ -1,5 +1,6 @@
 import 'package:YumFind/core/components/reusable_components.dart';
 import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_images.dart';
 import 'package:YumFind/core/utils/app_strings.dart';
 import 'package:YumFind/core/utils/styles.dart';
 import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
@@ -24,8 +25,8 @@ class ShoppingTab extends StatelessWidget {
             ? Column(
           children: [
             SizedBox(height: 70.h),
-            Image.asset('assets/images/empty_shopping.png'),
-            Text('Your shopping list is empty. \n Start adding your missing ingredients !',textAlign: TextAlign.center,style: AppStyles.bodyM.copyWith(fontSize: 16.sp),)
+            Image.asset(AppImages.shoppingEmpty),
+            Text(AppStrings.shoppingEmpty,textAlign: TextAlign.center,style: AppStyles.bodyM.copyWith(fontSize: 16.sp),)
           ],
         )
             : SizedBox(

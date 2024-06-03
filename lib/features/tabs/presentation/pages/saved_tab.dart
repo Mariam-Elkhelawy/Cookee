@@ -1,3 +1,4 @@
+import 'package:YumFind/core/utils/app_images.dart';
 import 'package:YumFind/core/utils/app_strings.dart';
 import 'package:YumFind/core/utils/styles.dart';
 import 'package:YumFind/features/tabs/data/models/SearchModel.dart';
@@ -22,10 +23,9 @@ class SavedTab extends StatelessWidget {
             ? Column(
                 children: [
                   SizedBox(height: 70.h),
-                  Image.asset('assets/images/empty_saved.png'),
+                  Image.asset(AppImages.savedEmpty),
                   Text(
-                    'No saved recipes yet! \n'
-                    'Your favorite recipes will appear here!',
+                    AppStrings.savedEmpty,
                     textAlign: TextAlign.center,
                     style: AppStyles.bodyM.copyWith(fontSize: 16.sp),
                   )

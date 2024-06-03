@@ -1,5 +1,6 @@
 import 'package:YumFind/config/routes/app_routes_names.dart';
 import 'package:YumFind/core/utils/app_colors.dart';
+import 'package:YumFind/core/utils/app_images.dart';
 import 'package:YumFind/core/utils/app_strings.dart';
 import 'package:YumFind/core/utils/styles.dart';
 import 'package:YumFind/features/onboarding/onboarding_widget.dart';
@@ -26,25 +27,27 @@ class OnboardingScreenState extends State<OnboardingScreen> {
           PageView(
             controller: pageController,
             onPageChanged: (index) {
-              setState(() {
-                currentPage = index;
-              });
+              setState(
+                () {
+                  currentPage = index;
+                },
+              );
             },
             children: const [
               OnboardingWidget(
                 title: AppStrings.onboardTitle1,
                 description: AppStrings.onboardDescription1,
-                imagePath: "assets/images/1.png",
+                imagePath: AppImages.onboarding1,
               ),
               OnboardingWidget(
                 title: AppStrings.onboardTitle2,
                 description: AppStrings.onboardDescription2,
-                imagePath: "assets/images/2.png",
+                imagePath: AppImages.onboarding2,
               ),
               OnboardingWidget(
                 title: AppStrings.onboardTitle3,
                 description: AppStrings.onboardDescription3,
-                imagePath: "assets/images/4.png",
+                imagePath: AppImages.onboarding3,
               ),
             ],
           ),
@@ -66,7 +69,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                           );
                         },
                         child: Text(
-                          "Skip",
+                          AppStrings.skip,
                           style: AppStyles.bodyM.copyWith(
                               color: AppColor.primaryColor, fontSize: 14.sp),
                         ),
@@ -110,7 +113,7 @@ class OnboardingScreenState extends State<OnboardingScreen> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                       child: Text(
-                        currentPage == 2 ? "Done" : "Next",
+                        currentPage == 2 ? AppStrings.done : AppStrings.next,
                         style: AppStyles.bodyM.copyWith(
                             fontSize: 14.sp, color: AppColor.lightColor),
                       ),
