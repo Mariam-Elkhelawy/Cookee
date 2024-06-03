@@ -10,7 +10,8 @@ Welcome to **Yum-Find**! Yum-Find is your ultimate recipe app that helps you dis
 - [Contributing](#contributing) 🤝
 - [Contact](#contact) 📧
 
-    <a href="url"><img src="https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/6b3eb35d-8bdc-4213-a35f-94c0ffc7deed" height="auto" width="auto" style="border-radius:15px;"></a>
+   <img src="https://github.com/Mariam-Elkhelawy/Yum-Find/assets/112530709/6b3eb35d-8bdc-4213-a35f-94c0ffc7deed" alt="Screenshot" style="border-radius: 15px; width: 300px;"/>
+
 
 <a id="demo"></a>
 
