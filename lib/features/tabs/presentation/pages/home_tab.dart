@@ -222,7 +222,10 @@ class HomeTabState extends State<HomeTab> {
                           child: BlocBuilder<SearchCubit, SearchState>(
                             builder: (context, state) {
                               if (state is SearchFailureState) {
-                                return customError(state.errorMessage);
+                                return Padding(
+                                  padding: EdgeInsets.all(45.r),
+                                  child: customError(state.errorMessage),
+                                );
                               }
                               if (state is SearchSuccessState) {
                                 return SizedBox(

@@ -49,7 +49,7 @@ class SearchWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 16.w),
+              SizedBox(width: 14.w),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
